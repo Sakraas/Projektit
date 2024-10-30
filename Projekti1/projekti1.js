@@ -1,4 +1,4 @@
-function testi(event)
+function laheta(event)
 {
     event.preventDefault();
     //Tietojen haku taulukosta
