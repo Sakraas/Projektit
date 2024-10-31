@@ -1,0 +1,38 @@
+.rubik-wet-paint-regular {
+    font-family: "Rubik Wet Paint", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+body {
+    /* Pelin keskitys näytön keskelle */
+    display: flex;       
+    align-items: center;
+    justify-content: center;
+    /* Taustavärin muutos koko body elementtiin */
+    background-color: black;
+}
+
+main {
+    /* Pelin irroitus ylä ja alareunasta */
+    padding: 0 20px 0 20px; 
+    /* Reunus ja reunuksen kulmien pyöristys */
+    border-radius: 6px; 
+    /* Taustavärin vaihto */
+    background-color: rgba(255, 255, 255, 0.842);
+}
+
+h1{
+    font-family: "Rubik Wet Paint", system-ui;
+    color: black;
+    text-shadow: 2px 2px #ff7400;
+}
+
+button {
+    background-color: #000;
+    color: #ff7400;
+}
+
+#score {
+    text-shadow: 0.5px 0.5px #ff7400;
+}
