@@ -3,52 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS_kansio/kirjautumislomake.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
     <title>Projekti 1 - Kirjautumislomake</title>
 </head>
 <body>
-    <form action="">
-        <h1>Kirjautumislomake</h1>
+    <main> 
+        <form action="">
+            <h1>Kirjautumislomake</h1>
 
-        <label for="user">Nimi:</label>
-        <input type="text" id="user">
+            <label for="user">Nimi:</label>
+            <input type="text" id="user">
 
-        <label for="pw">Salasana:</label>
-        <input type="text" id="pw">
-        
-        <h3>Millainen koneen käyttäjä olet?</h3>
-        <label for="himopelaaja">himopelaaja</label>
-        <input type="radio" name="radio" id="himopelaaja">
-        <label for="opiskeluun">käytän opiskeluun</label>
-        <input type="radio" name="radio" id="opiskeluun">
-        <label for="enkaytakonetta">en käytä konetta</label>
-        <input type="radio" name="radio" id="enkaytakonetta">
+            <label for="pw">Salasana:</label>
+            <input type="text" id="pw">
+            
+            <h3>Millainen koneen käyttäjä olet?</h3>
+            <label for="himopelaaja">himopelaaja</label>
+            <input type="radio" name="radio" id="himopelaaja">
+            <label for="opiskeluun">käytän opiskeluun</label>
+            <input type="radio" name="radio" id="opiskeluun">
+            <label for="enkaytakonetta">en käytä konetta</label>
+            <input type="radio" name="radio" id="enkaytakonetta">
 
-        <h3>Mitä mieltä olet sivustani tähän asti</h3>
-        <label for="mielipide1">Todella hienot</label>
-        <input type="checkbox" id="mielipide1">
-        <label for="mielipide2">Ammattimaisesti tehty</label>
-        <input type="checkbox" id="mielipide2">
-        <label for="mielipide3">Ostan sinulta!</label>
-        <input type="checkbox" id="mielipide3">
+            <h3>Mitä mieltä olet sivustani tähän asti</h3>
+            <label for="mielipide1">Todella hienot</label>
+            <input type="checkbox" id="mielipide1">
+            <label for="mielipide2">Ammattimaisesti tehty</label>
+            <input type="checkbox" id="mielipide2">
+            <label for="mielipide3">Ostan sinulta!</label>
+            <input type="checkbox" id="mielipide3">
 
-        <h3>Mikä on lempiaineesi Keudassa</h3>
-        <label for="lempiaine"></label>
-        <select id="lempiaine">
-            <option value="ammattiaineet">ammattiaineet</option>
-            <option value="ohjelmointi">ohjelmointi</option>
-        </select>
+            <h3>Mikä on lempiaineesi Keudassa</h3>
+            <label for="lempiaine"></label>
+            <select id="lempiaine">
+                <option value="ammattiaineet">ammattiaineet</option>
+                <option value="ohjelmointi">ohjelmointi</option>
+            </select>
 
-        <h3>Kerro, miten kehittäisit sivujani</h3>
-        <label for="kehitysidea"></label>
-        <textarea id="kehitysidea" cols="35" rows="10"></textarea>
+            <h3>Kerro, miten kehittäisit sivujani</h3>
+            <label for="kehitysidea"></label>
+            <textarea id="kehitysidea" cols="35" rows="10"></textarea>
 
-        <label for="ehdotus"></label>
-        <input type="button" value="paina minua" id="ehdotus">
+            <label for="ehdotus"></label>
+            <input type="button" value="paina minua" id="ehdotus">
 
-        <label for="laheta"></label>
-        <input type="submit" value="Laheta" id="laheta">
-    </form>
-    
+            <label for="laheta"></label>
+            <input type="submit" value="Laheta" id="laheta">
+        </form>
+    </main>
 </body>
 </html>
