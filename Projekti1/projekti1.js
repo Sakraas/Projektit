@@ -20,7 +20,7 @@ function send(event)
         alert("Salasanan pitää olla vähintään 6 merkkiä pitkä!");
     }
     else if(idea.trim() == "") {
-        alert("Anna jokin palaute tai -");
+        alert("Anna jokin kehitysehdotus tai laita kenttään -");
     }
 
     else{
