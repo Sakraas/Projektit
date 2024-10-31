@@ -14,15 +14,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #f0f0f0; /* Taustaväri */
 }
 
 main {
     background-color: white; /* Lomakkeen taustaväri */
-    padding: 20px;
+    padding: 0 30px 0 30px;
     border-radius: 8px; /* Kulmien pyöristys */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Varjo */
 }
 
 h1, h3 {
@@ -32,6 +30,8 @@ h1, h3 {
     font-style: normal;
 }
 
-#ehdotus, #laheta {
+#tyhjenna, #laheta {
     padding: 10px;
+    background-color: lightblue;
+    color: white;
 }
