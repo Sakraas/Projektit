@@ -18,7 +18,7 @@
             <input type="text" id="user">
 
             <label for="pw">Salasana:</label>
-            <input type="text" id="pw">
+            <input type="password" id="pw">
             
             <h3>Millainen koneen käyttäjä olet?</h3>
             <label for="himopelaaja">himopelaaja</label>
@@ -47,13 +47,13 @@
             <label for="kehitysidea"></label>
             <textarea id="kehitysidea" cols="35" rows="10"></textarea><br />
 
-            <label for="ehdotus"></label>
-            <input type="button" value="paina minua" id="ehdotus">
+            <label for="tyhjenna"></label>
+            <button id="tyhjenna" onclick="reset()">Reset</button>
 
             <label for="laheta"></label>
-            <input type="submit" value="Läheta" id="laheta">
+            <button id="laheta" onclick="send(event)">Lähetä</button>
         </form>
     </main>
+    <script src="projekti1.js"></script>
 </body>
-<script src="projekti1.js"></script>
 </html>
