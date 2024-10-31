@@ -5,6 +5,7 @@ function laheta(event)
     let sposti = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
     //Tietojen tarkistus lomakkeesta
+
     // let checkbox = document.getElementById("checkbox").isChecked;
     // let radio = document.getElementsByName("käyttäjä").isChecked;
     // let dropdown = document.getElementById("select").isChecked;
@@ -26,6 +27,4 @@ function laheta(event)
         alert("Kirjautumisesi on vastaanotettu!")
     }
 
-
-    
 }
