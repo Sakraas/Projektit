@@ -1,4 +1,4 @@
-function laheta(event)
+function send(event)
 {
     event.preventDefault();
     //Tietojen haku taulukosta
@@ -29,7 +29,7 @@ function laheta(event)
 
 }
 
-// function reset()
-// {
-//     formElement.reset()  
-// }
+function reset()
+{
+    formElement.reset()  
+}
