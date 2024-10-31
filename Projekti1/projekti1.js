@@ -9,7 +9,7 @@ function send(event)
     //Tietojen täytön tarkistus + ilmoitus puuttuvista tiedoista
     if(nimi.trim() == "")
     {
-        alert("Anna sähköposti");
+        alert("Anna Nimi!");
     }
     else if(pass.trim() == "")
     {
