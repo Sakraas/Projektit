@@ -6,39 +6,46 @@
     <title>Projekti 2 - kyselylomake asiakaskertomuksilla</title>
 </head>
 <body>
+    <!-- Form koko lomakkeen kattava elementti -->
     <form id="kyselylomake">
         <h1 id="otsikko">Kyselylomake</h1>
         <p id="kuvaus">Täytä kyseisen lomakkeen vaatimat tiedot <br> ja lähetä ne painamalla Lähetä painiketta.</p>
+        <!-- Taulukko kyselylomakeen tietoje kyselyille -->
         <table>
+            <!-- Nimen syöttö -->
             <tr>
                 <td>
                     <label for="nimi" id="nimisyotto">Nimi:</label>
                     <input type="text" id="nimi" name="nimi">
                 </td>    
             </tr>
+            <!-- Sähköpostin syöttö -->
             <tr>
                 <td>
                     <label for="email" id="emailsyotto">Sähköposti:</label>
                     <input type="email" id="email" name="email">
                 </td>
             </tr>
+            <!-- Iän syöttö, pelkkänä numerona -->
             <tr>
                 <td>
                     <label for="ika" id="ikasyotot">Ikä:</label>
                     <input type="number" id="ika" name="ika">
                 </td>
             </tr>
+            <!-- Pudotusvalikko ja sen valinta vaihtoehdot -->
             <tr>
                 <td>
                     <label for="">Puhelimen käyttö päivässä</label>
                     <select name="pudotus" id="pudotus">
-                        <option value="">0-2</option>
-                        <option value="Nainen" id="nainen">3-5h</option>
-                        <option value="Mies" id="mies">6-8h</option>
-                        <option value="muu" id="muu">yli 8h</option>
+                        <option value="nolla">0-2</option>
+                        <option value="kolme" id="kolme">3-5h</option>
+                        <option value="kuusi" id="kuusi">6-8h</option>
+                        <option value="kahdeksan" id="kahdeksan">yli 8h</option>
                     </select>
                 </td>
             </tr>
+            <!-- Radio valinta ruutu -->
             <tr>
                 <td>
                     <label for="gender">Sukupuoli:</label>
@@ -50,6 +57,7 @@
                     <input type="radio" id="muu" name="gender" value="muu">
                 </td>
             </tr>
+            <!-- Checkbox valinnat -->
             <tr>
                 <td>
                     <label for="elain">Mistä eläimistä tykkäät?</label><br>
@@ -63,6 +71,7 @@
                     <input type="checkbox" name="Kilpikonna" id="kilpikonna" value="kilpikonna">
                 </td>
             </tr>
+            <!-- Text area -->
             <tr>
                 <td>
                     <label for="palaute">Anna vapaamuotoinen palaute</label><br>
@@ -70,6 +79,7 @@
                 </td>
             </tr>
         </table>
+        <!-- Lähetä painike -->
         <button type="button" onclick="laheta()">Lähetä</button>
     </form>
 </body>
