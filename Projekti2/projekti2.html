@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvaa Luku -peli</title>
+    <link rel="stylesheet" href="style.css"> <!-- Linkittää CSS-tyylit -->
+</head>
+<body>
+    <main>
+        <h1>Arvaa Luku</h1> <!-- Peliotsikko -->
+        <div id="numbers"> <!-- Numeron valintanapit -->
+            <button onclick="guessNumber(1)">1</button>
+            <button onclick="guessNumber(2)">2</button>
+            <button onclick="guessNumber(3)">3</button>
+            <button onclick="guessNumber(4)">4</button>
+            <button onclick="guessNumber(5)">5</button>
+            <button onclick="guessNumber(6)">6</button>
+            <button onclick="guessNumber(7)">7</button>
+            <button onclick="guessNumber(8)">8</button>
+            <button onclick="guessNumber(9)">9</button>
+            <button onclick="guessNumber(10)">10</button>
+        </div>
+        <div id="status"></div> <!-- Tieto pelaajan arvauksista -->
+        <button id="reset" style="display:none;">Aloita Alusta</button> <!-- Uuden pelin aloittamisnappi -->
+        <div id="score"> <!-- Pelin tilastot -->
+            <p>Voitot: <span id="wins">0</span>, Tappiot: <span id="losses">0</span></p>
+        </div>
+    </main>
+    <script src="script.js"></script> <!-- Linkittää JavaScript-tiedoston -->
+</body>
+</html>
