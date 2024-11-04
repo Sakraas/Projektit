@@ -10,7 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     /* Taustavärin muutos koko body elementtiin */
-    background-color: black;
+    background-color: #283618;
 }
 
 main {
@@ -19,20 +19,39 @@ main {
     /* Reunus ja reunuksen kulmien pyöristys */
     border-radius: 6px; 
     /* Taustavärin vaihto */
-    background-color: rgba(255, 255, 255, 0.842);
+    background-color: #fffef9;
 }
 
 h1{
     font-family: "Rubik Wet Paint", system-ui;
-    color: black;
-    text-shadow: 2px 2px #ff7400;
+    color: #000;
+    text-shadow: 2px 2px #BC6C25;
 }
 
 button {
     background-color: #000;
-    color: #ff7400;
+    color: #BC6C25;
 }
 
 #score {
-    text-shadow: 0.5px 0.5px #ff7400;
+    text-shadow: 0.5px 0.5px #BC6C25;
+}
+
+.highlight {
+    display: inline-block;
+    cursor: pointer;
+
+    background-image: linear-gradient(#BC6C25, #BC6C25);
+    background-repeat: no-repeat;
+
+    background-size: 1px 100%;
+    background-position: 0 0;
+    transition: background-size 0.3s, backgound-position 0.1s 0.3s;
+}
+
+.highlight:hover {
+    background-size: 100% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.1s, background-size 0.3s 0.1s;
+    color: #000;
 }
