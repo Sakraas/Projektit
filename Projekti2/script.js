@@ -1,6 +1,8 @@
 let vastaus = Math.floor(Math.random() * 10 + 1);
 let arvaustenMaara = 0;
 let arvaukset =[];
+let voitot = 0;
+let tappiot = 0;
 
 window.onload = window.alert(vastaus);
 
