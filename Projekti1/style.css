@@ -1,0 +1,37 @@
+/* Kirjautumislomake olisi hyvä olla keskitetty
+
+Taustavärin olisi hyvä olla vaaleahko sävyltään harmaa
+
+Kirjautumis lomakkeen pitäisi olla väriltään vaaleahko ja sinertävä.
+
+Valitse kirjautumislomakkeen otsikolle jokin erikoisempi mutta selkeä fontti
+
+Kommentoinnit koodin yhteyteen
+
+Kirjautumislomake voisi olla rakennettu yhden elementin sisään, joka sisältää otsikon, kyselylomakkeen elementit sekä painikevaihtoehdot. */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Taustaväri */
+}
+
+main {
+    background-color: white; /* Lomakkeen taustaväri */
+    padding: 0 30px 0 30px;
+    border-radius: 8px; /* Kulmien pyöristys */
+}
+
+h1, h3 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+
+#tyhjenna, #laheta {
+    padding: 10px;
+    background-color: lightblue;
+    color: white;
+}
