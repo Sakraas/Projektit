@@ -8,13 +8,13 @@ window.onload = window.alert(vastaus);
 
 function guessNumber(arvo) {
     if (arvaustenMaara >= 3) {
-        window.alert("Hävisit pelin!")
         for (var n = 1; n <= 10; n++)
             {
               document.getElementById(n).classList.add("disabled");
               document.getElementById(n).disabled = true;
             }
         tappiot++;
+        document.getElementById("rivi1").innerHTML = "Hävisit pelin!"
         document.getElementById("losses").innerHTML = tappiot;
     } else 
 
@@ -32,8 +32,21 @@ function guessNumber(arvo) {
             document.getElementById("rivi3").innerHTML = "Arvausten määrä " + arvaustenMaara;
     }   else {
         window.alert("Arvasit oikein!")
+        document.getElementById(arvo.value).classList.add("oikein");
+        document.getElementById(arvo.value).disabled = true;
         voitot++;
+        for(var k = 1; k <= 10; k++) {
+              if(k == arvo.value && arvo.value !=10) {
+                k++;
+              }
+              document.getElementById(k).classList.add("disabled");
+              document.getElementById(k).disabled = true;
+            }
+        arvaustenMaara++
         document.getElementById("wins").innerHTML = voitot;
     }
 }
 window.alert(arvaus);
+function uusiPeli() {
+
+}
