@@ -37,7 +37,7 @@ button {
     text-shadow: 0.5px 0.5px #BC6C25;
 }
 
-/* .highlight {
+/* .peli {
     display: inline-block;
     cursor: pointer;
 
@@ -47,20 +47,60 @@ button {
     background-size: 1px 100%;
     background-position: 0 0;
     transition: background-size 0.3s, backgound-position 0.1s 0.3s;
-}
+} */
 
-.highlight:hover {
+/* .peli:hover {
     background-size: 100% 100%;
     background-position: 100% 0;
     transition: background-position 0.1s, background-size 0.3s 0.1s;
     color: #000;
 } */
 
-.highlight {
+.main :hover>:not(:hover) {
+    opacity: 0.2;
+    }
+
+.peli:disabled,
+.peli.disabled{
+    color: #a00;
+    border-color: #a0a0a0;
+    background-color: #a0a0a0;
+}
+
+.peli:disabled:hover,
+.peli:disabled:focus,
+.peli.disabled:hover,
+.peli.disabled:focus {
+  color:#fff;
+  border-color: #a0a0a0;
+  background-color: #a0a0a0;
+}
+
+.peli.oikein{
+    color: #000;
+    border-color: aqua;
+    background-color: #0af;
+}
+
+.peli.oikein:disabled:hover,
+.peli.oikein:disabled:focus {
+    color: #000;
+    border-color: aqua;
+    background-color: #0af;
+}
+
+
+/* .highlight {
     background: linear-gradient(45deg, #00fffc, #ffffff);
     border-radius: 10px;
     transition: opacity 0.7s ease;
     cursor: pointer;
-}
+} */
 
-.main-container:hover>:not(:hover)
+/* .main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    gap: 30px;
+} */
