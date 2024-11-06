@@ -24,12 +24,12 @@
             <button class="peli" value="9" id="9" onclick="guessNumber(this)">9</button>
             <button class="peli" value="10" id="10"  onclick="guessNumber(this)">10</button>
         </div>
-        <div id="status">
+        <div id="status"> <!-- Tieto pelaajan arvauksista -->
             <p id="rivi1"></p>
             <p id="rivi2"></p>
             <p id="rivi3"></p>
-        </div> <!-- Tieto pelaajan arvauksista -->
-        <button id="reset" style="display:none;">Aloita Alusta</button> <!-- Uuden pelin aloittamisnappi -->
+        </div>
+        <button onclick="uusiPeli()" id="reset">Aloita Alusta</button> <!-- Uuden pelin aloittamisnappi -->
         <div id="score"> <!-- Pelin tilastot -->
             <p>Voitot: <span id="wins">0</span>, Tappiot: <span id="losses">0</span></p>
         </div>
