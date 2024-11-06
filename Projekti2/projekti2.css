@@ -37,7 +37,7 @@ button {
     text-shadow: 0.5px 0.5px #BC6C25;
 }
 
-/* .peli {
+.peli {
     display: inline-block;
     cursor: pointer;
 
@@ -47,18 +47,18 @@ button {
     background-size: 1px 100%;
     background-position: 0 0;
     transition: background-size 0.3s, backgound-position 0.1s 0.3s;
-} */
+}
 
-/* .peli:hover {
+.peli:hover {
     background-size: 100% 100%;
     background-position: 100% 0;
     transition: background-position 0.1s, background-size 0.3s 0.1s;
     color: #000;
-} */
+}
 
-/* .main :hover>:not(:hover) {
+.numerot:hover>:not(:hover) {
     opacity: 0.2;
-    } */
+    }
 
 .peli:disabled,
 .peli.disabled{
