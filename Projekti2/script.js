@@ -31,17 +31,10 @@ function guessNumber(arvo) {
             document.getElementById("rivi2").innerHTML = "Arvatut numerot " + arvaukset;
             document.getElementById("rivi3").innerHTML = "Arvausten määrä " + arvaustenMaara;
     }   else {
-        window.alert("Arvasit oikein!")
+        document.getElementById("rivi1").innerHTML = "Arvasit oikein!"
         document.getElementById(arvo.value).classList.add("oikein");
         document.getElementById(arvo.value).disabled = true;
         voitot++;
-        for(var k = 1; k <= 10; k++) {
-              if(k == arvo.value && arvo.value !=10) {
-                k++;
-              }
-              document.getElementById(k).classList.add("disabled");
-              document.getElementById(k).disabled = true;
-            }
         arvaustenMaara++
         document.getElementById("wins").innerHTML = voitot;
     }
