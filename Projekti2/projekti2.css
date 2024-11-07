@@ -89,6 +89,8 @@ button {
     background-color: #0af;
 }
 
+.peli:active:disabled {
+}
 
 /* .highlight {
     background: linear-gradient(45deg, #00fffc, #ffffff);
