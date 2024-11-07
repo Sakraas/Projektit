@@ -4,7 +4,6 @@ let arvaukset =[];
 let voitot = 0;
 let tappiot = 0;
 
-window.onload = window.alert(vastaus);
 
 function guessNumber(arvo) {
     if (arvaustenMaara >= 3) {
@@ -23,12 +22,22 @@ function guessNumber(arvo) {
         if (vastaus < arvo.value) {
             arvaukset.push(arvo.value);
             arvaustenMaara++
+            for(var j = arvo.value; j <= 10; j++)
+                {
+                  document.getElementById(j).classList.add("disabled");
+                  document.getElementById(j).disabled = true;
+                }
             document.getElementById("rivi1").innerHTML = "Arvasit liian suuren numeron!";
             document.getElementById("rivi2").innerHTML = "Arvatut numerot " + arvaukset;
             document.getElementById("rivi3").innerHTML = "Arvausten määrä " + arvaustenMaara;
         } else if (vastaus > arvo.value) {
             arvaukset.push(arvo.value);
             arvaustenMaara++
+            for(var i = 1; i <= arvo.value; i++)
+                {
+                  document.getElementById(i).classList.add("disabled");
+                  document.getElementById(i).disabled = true;
+                }
             document.getElementById("rivi1").innerHTML = "Arvasit liian pienen numeron!";
             document.getElementById("rivi2").innerHTML = "Arvatut numerot " + arvaukset;
             document.getElementById("rivi3").innerHTML = "Arvausten määrä " + arvaustenMaara;
@@ -47,7 +56,6 @@ function guessNumber(arvo) {
               document.getElementById(k).disabled = true;
             }
           }
-        arvaustenMaara++
         document.getElementById("wins").innerHTML = voitot;
     }
 }
