@@ -1,4 +1,4 @@
-let vastaus = Math.floor(Math.random() * 10 + 1);
+let vastaus = Math.floor(Math.random() * 10 + 1); 
 let arvaustenMaara = 0;
 let arvaukset =[];
 let voitot = 0;
@@ -47,8 +47,8 @@ function guessNumber(arvo) {
         document.getElementById(arvo.value).disabled = true;
         voitot++;
         for(var k = 1; k <= 10; k++)
-            {
-              if(k == arvo.value && arvo.value !=10)
+          {
+            if(k == arvo.value && arvo.value !=10)
               {
                 k++;
               }
@@ -56,6 +56,7 @@ function guessNumber(arvo) {
               document.getElementById(k).disabled = true;
             }
           }
+          arvaustenMaara++
         document.getElementById("wins").innerHTML = voitot;
     }
 }
