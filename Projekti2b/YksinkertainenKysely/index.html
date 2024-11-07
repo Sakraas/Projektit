@@ -15,7 +15,7 @@
     </div>
     <section>  <!-- Tärkeä sisältöosio, jossa tietovisa sijaitsee -->
         <div id="tulokset"></div>  <!-- Tulos-alue, johon käyttäjän pisteet näytetään -->
-            <form name="kyselyLomake" onsubmit="return lahetaVastaukset()">  <!-- Lomake, jossa kysymykset ja vastaukset, lähetetään JavaScript-funktiolle 'lahetaVastaukset' lomakkeen lähetyksessä -->
+            <form name="kyselyLomake" onsubmit="return lahetaVastaukset(event)">  <!-- Lomake, jossa kysymykset ja vastaukset, lähetetään JavaScript-funktiolle 'lahetaVastaukset' lomakkeen lähetyksessä -->
                 <!-- Kysymys 1 -->
                 <h3>1. Mihin HTML elementtiin sijoitamme JavaScript koodin?</h3>
                 <input type="radio" name="k1" value="a" id="k1a"/>a. &lt js &gt<br />  <!-- Vastausvaihtoehto a -->
