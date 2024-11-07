@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main class="main">
+    <main>
         <h1>Arvaa Luku</h1> <!-- Peliotsikko -->
-        <div id="numbers"> <!-- Numeron valintanapit -->
+        <div class="numerot"> <!-- Numeron valintanapit -->
             <button class="peli" value="1" id="1" onclick="guessNumber(this)">1</button>
             <button class="peli" value="2" id="2" onclick="guessNumber(this)">2</button>
             <button class="peli" value="3" id="3" onclick="guessNumber(this)">3</button>
@@ -24,12 +24,12 @@
             <button class="peli" value="9" id="9" onclick="guessNumber(this)">9</button>
             <button class="peli" value="10" id="10"  onclick="guessNumber(this)">10</button>
         </div>
-        <div id="status">
+        <div id="status"> <!-- Tieto pelaajan arvauksista -->
             <p id="rivi1"></p>
             <p id="rivi2"></p>
             <p id="rivi3"></p>
-        </div> <!-- Tieto pelaajan arvauksista -->
-        <button id="reset" style="display:none;">Aloita Alusta</button> <!-- Uuden pelin aloittamisnappi -->
+        </div>
+        <button onclick="uusiPeli()" id="reset">Aloita Alusta</button> <!-- Uuden pelin aloittamisnappi -->
         <div id="score"> <!-- Pelin tilastot -->
             <p>Voitot: <span id="wins">0</span>, Tappiot: <span id="losses">0</span></p>
         </div>

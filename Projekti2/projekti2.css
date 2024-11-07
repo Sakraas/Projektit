@@ -56,9 +56,41 @@ button {
     color: #000;
 }
 
-.main :hover>:not(:hover) {
+.numerot:hover>:not(:hover) {
     opacity: 0.2;
     }
+
+.peli:disabled,
+.peli.disabled{
+    color: #a00;
+    border-color: #a0a0a0;
+    background-color: #a0a0a0;
+}
+
+.peli:disabled:hover,
+.peli:disabled:focus,
+.peli.disabled:hover,
+.peli.disabled:focus {
+  color:#a00;
+  border-color: #a0a0a0;
+  background-color: #a0a0a0;
+}
+
+.peli.oikein{
+    color: #000;
+    border-color: aqua;
+    background-color: #0af;
+}
+
+.peli.oikein:disabled:hover,
+.peli.oikein:disabled:focus {
+    color: #000;
+    border-color: aqua;
+    background-color: #0af;
+}
+
+.peli:active:disabled {
+}
 
 /* .highlight {
     background: linear-gradient(45deg, #00fffc, #ffffff);
