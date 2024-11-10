@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fi">  <!-- Määritellään dokumentin kieli suomeksi -->
+<head>
+    <meta charset="UTF-8">  <!-- Määritellään dokumentin merkistö UTF-8:ksi, joka tukee erikoismerkkejä -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Responsiivinen suunnittelu, joka varmistaa, että sivu skaalautuu oikein eri kokoisilla näytöillä -->
+    <link rel="stylesheet" href="css/tyyli.css">  <!-- Linkitetään ulkoinen CSS-tiedosto (tyylitiedostot) -->
+    <title>Yksinkertainen JavaScript tietovisa</title>  <!-- Määritellään sivun otsikko, joka näkyy selainikkunassa -->
+</head>
+<body>
+    <div id="sisalto">  <!-- Sisältö-alue, joka sisältää sivun päänäkymän -->
+            <header>  <!-- Sivun ylätunniste -->
+                <h1>Yksinkertainen JavaScript tietovisa</h1>  <!-- Sivun otsikko -->
+                <p>Testaa tietosi <strong>JavaScript perusteista</strong></p>  <!-- Lyhyt kuvaus siitä, mitä sivu tarjoaa -->
+            </header>
+    </div>
+    <section>  <!-- Tärkeä sisältöosio, jossa tietovisa sijaitsee -->
+        <div id="tulokset"></div>  <!-- Tulos-alue, johon käyttäjän pisteet näytetään -->
+            <form name="kyselyLomake" onsubmit="return lahetaVastaukset(event)">  <!-- Lomake, jossa kysymykset ja vastaukset, lähetetään JavaScript-funktiolle 'lahetaVastaukset' lomakkeen lähetyksessä -->
+                <!-- Kysymys 1 -->
+                <h3>1. Mihin HTML elementtiin sijoitamme JavaScript koodin?</h3>
+                <input type="radio" name="k1" value="a" id="k1a"/>a. &lt js &gt<br />  <!-- Vastausvaihtoehto a -->
+                <input type="radio" name="k1" value="b" id="k1b"/>b. &lt script &gt<br />  <!-- Vastausvaihtoehto b -->
+                <input type="radio" name="k1" value="c" id="k1c"/>c. &lt body &gt<br />  <!-- Vastausvaihtoehto c -->
+                <input type="radio" name="k1" value="d" id="k1d"/>c. &lt link &gt<br />  <!-- Vastausvaihtoehto d -->
+                <!-- Kysymys 2 -->
+                <h3>2. Mitä HTML atribuuttia käytetään viittaamaan ulkoiseen JavaScript tiedostoon?</h3>
+                <input type="radio" name="k2" value="a" id="k2a"/>a. src<br />  <!-- Vastausvaihtoehto a -->
+                <input type="radio" name="k2" value="b" id="k2b"/>b. link<br />  <!-- Vastausvaihtoehto b -->
+                <input type="radio" name="k2" value="c" id="k2c"/>c. href<br />  <!-- Vastausvaihtoehto c -->
+                <input type="radio" name="k2" value="d" id="k2d"/>d. rel<br />  <!-- Vastausvaihtoehto d -->
+                <!-- Kysymys 3 -->
+                <h3>3. Kuinka kirjoitat "Moikka" alert-viestinä? </h3>
+                <input type="radio" name="k3" value="a" id="k3a"/>a. msg("Moikka");<br />  <!-- Vastausvaihtoehto a -->
+                <input type="radio" name="k3" value="b" id="k3b"/>b. alertBox("Moikka");<br />  <!-- Vastausvaihtoehto b -->
+                <input type="radio" name="k3" value="c" id="k3c"/>c. alert("Moikka");<br />  <!-- Vastausvaihtoehto c -->
+                <input type="radio" name="k3" value="d" id="k3d"/>d. document.write("Moikka");<br />  <!-- Vastausvaihtoehto d -->
+                <!-- Kysymys 4 -->
+                <h3>4. JavaScript on suoraan "Java" kielen sukulainen</h3>
+                <input type="radio" name="k4" value="a" id="k4a"/>kyllä<br />  <!-- Vastausvaihtoehto a -->
+                <input type="radio" name="k4" value="b" id="k4b"/>ei<br />  <!-- Vastausvaihtoehto b -->
+                <!-- Kysymys 5 -->
+                <h3>5. JavaScript muuttujan pitää alkaa tietyllä merkillä</h3>
+                <input type="radio" name="k5" value="a" id="k5a"/>a. @<br />  <!-- Vastausvaihtoehto a -->
+                <input type="radio" name="k5" value="b" id="k5b"/>b. #<br />  <!-- Vastausvaihtoehto b -->
+                <input type="radio" name="k5" value="c" id="k5c"/>c. $<br />  <!-- Vastausvaihtoehto c -->
+                <input type="radio" name="k5" value="d" id="k5d"/>d. Ei tarvitse tiettyä merkkiä<br />  <!-- Vastausvaihtoehto d -->
+                <br /><br />
+                <input type="submit" value="Lähetä vastaukset">  <!-- Lähetä-painike lomakkeen lähettämiseksi -->
+            </form>
+    </section>
+    <footer>  <!-- Sivun alatunniste -->
+        <p>Copyright &copy; Sami Koskenranta, Juuso Sandelin, Sakari Raassina - 2024</p>  <!-- Tekijänoikeustiedot -->
+    </footer>
+</body>
+    <script type="text/javascript" src="js/script.js"></script>  <!-- Linkitetään ulkoinen JavaScript-tiedosto, joka sisältää lomakkeen käsittelyn ja tulosten näyttämisen -->
+</html>

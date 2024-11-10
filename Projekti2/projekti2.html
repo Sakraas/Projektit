@@ -12,20 +12,24 @@
 <body>
     <main>
         <h1>Arvaa Luku</h1> <!-- Peliotsikko -->
-        <div id="numbers"> <!-- Numeron valintanapit -->
-            <button value="1" id="1" onclick="guessNumber(this)" class="highlight">1</button>
-            <button value="2" id="2" onclick="guessNumber(this)" class="highlight">2</button>
-            <button value="3" id="3" onclick="guessNumber(this)" class="highlight">3</button>
-            <button value="4" id="4" onclick="guessNumber(this)" class="highlight">4</button>
-            <button value="5" id="5" onclick="guessNumber(this)" class="highlight">5</button>
-            <button value="6" id="6" onclick="guessNumber(this)" class="highlight">6</button>
-            <button value="7" id="7" onclick="guessNumber(this)" class="highlight">7</button>
-            <button value="8" id="8" onclick="guessNumber(this)" class="highlight">8</button>
-            <button value="9" id="9" onclick="guessNumber(this)" class="highlight">9</button>
-            <button value="10" id="10"  onclick="guessNumber(this)" class="highlight">10</button>
+        <div class="numerot"> <!-- Numeron valintanapit -->
+            <button class="peli" value="1" id="1" onclick="guessNumber(this)">1</button>
+            <button class="peli" value="2" id="2" onclick="guessNumber(this)">2</button>
+            <button class="peli" value="3" id="3" onclick="guessNumber(this)">3</button>
+            <button class="peli" value="4" id="4" onclick="guessNumber(this)">4</button>
+            <button class="peli" value="5" id="5" onclick="guessNumber(this)">5</button>
+            <button class="peli" value="6" id="6" onclick="guessNumber(this)">6</button>
+            <button class="peli" value="7" id="7" onclick="guessNumber(this)">7</button>
+            <button class="peli" value="8" id="8" onclick="guessNumber(this)">8</button>
+            <button class="peli" value="9" id="9" onclick="guessNumber(this)">9</button>
+            <button class="peli" value="10" id="10"  onclick="guessNumber(this)">10</button>
         </div>
-        <div id="status"></div> <!-- Tieto pelaajan arvauksista -->
-        <button id="reset" style="display:none;">Aloita Alusta</button> <!-- Uuden pelin aloittamisnappi -->
+        <div id="status"> <!-- Tieto pelaajan arvauksista -->
+            <p id="rivi1"></p>
+            <p id="rivi2"></p>
+            <p id="rivi3"></p>
+        </div>
+        <button onclick="uusiPeli()" id="reset">Aloita Alusta</button> <!-- Uuden pelin aloittamisnappi -->
         <div id="score"> <!-- Pelin tilastot -->
             <p>Voitot: <span id="wins">0</span>, Tappiot: <span id="losses">0</span></p>
         </div>
