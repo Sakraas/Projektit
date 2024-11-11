@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    const naytto = document.getElementById("tulos");
-    const nappaimet = document.querySelectorAll("button");
+    const display = document.getElementById("tulos");
+    const buttons = document.querySelectorAll("button");
 
     let nykyinenOperaattori = "";
     let edellinenOperaattori = "";
@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
-            if (button.hasAttribute(data-numero)) {
+            if (button.hasAttribute("data-number")) {
                 appendNumber(button.getAttribute("data-number"));
             }
-            else if (button.hasAttribute("data-operaattori")) {
-                chooseOperator(button.getAttribute("data-operaattori"));
+            else if (button.hasAttribute("data-operator")) {
+                chooseOperator(button.getAttribute("data-operator"));
             }
             else if (button.id === "yhtSuuri") {
                 compute();
@@ -29,19 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (numero === "0" && nykyinenOperaattori === "0") return;
         nykyinenOperaattori = nykyinenOperaattori.toString() + numero.toString();
     }
-    function chooseOperator(selectedOperator) {
-        if (currentOperand === "") return;
-        if (previousOperand !== "") {
+    function chooseOperator(valittuOperaattori) {
+        if (nykyinenOperaattori === "") return;
+        if (edellinenOperaattori !== "") {
             compute();
         }
-        operaattori = selectedOperator;
-        previousOperand = currentOperand;
-        currentOperand = "";
+        operaattori = valittuOperaattori;
+        edellinenOperaattori = nykyinenOperaattori;
+        nykyinenOperaattori = "";
     }
     function compute() {
         let computation;
-        const prev = parseFloat(previousOperand);
-        const current = parseFloat(currentOperand);
+        const prev = parseFloat(edellinenOperaattori);
+        const current = parseFloat(nykyinenOperaattori);
         if (isNaN(prev) || isNaN(current)) return;
 
         switch (operaattori) {
