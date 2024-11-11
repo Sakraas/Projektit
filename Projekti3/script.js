@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
             else if (button.id === "reset") {
                 clear();
             }
+            else if (button.id === "delete") {
+                nykyinenOperaattori = "";
+            }
             updateDisplay();
         })
     })
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
             case "/":
                 computation = prev / current;
-                break;
+                break; 
             default:
                 return;
         }
