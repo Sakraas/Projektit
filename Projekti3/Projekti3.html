@@ -4,43 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projekti 3</title>
+    <link rel="stylesheet" href="Projekti3.css">
 </head>
 <body>
     <main>
+        <!-- Laskimen rakenteen taulukko -->
         <table>
+            <!-- Tulos näyttö -->
             <tr>
                 <td colspan="4"><p id="tulos"></p></td>
             </tr>
+            <!-- Ensimmäisen rivin painikkeet -->
             <tr>
-                <td><button type="button" id="reset" onclick="reset()">AC</button></td>
-                <td><button type="button" id="poista" onclick="poista()">C</button></td>
-                <td><button type="button" id="pros" onclick="lisaa('%')">%</button></td>
-                <td><button type="button" id="jako" onclick="lisaa('/')">/</button></td>
+                <td><button type="button" id="reset" class="reset">AC</button></td>
+                <td><button type="button" id="delete" class="delete">C</button></td>
+                <td><button class="operator" data-operator="%">%</button></td>
+                <td><button class="operator" data-operator="/">/</button></td>
             </tr>
+            <!-- Toisen rivin painikkeet -->
             <tr>
-                <td><button type="button" id="7" onclick="lisaa('7')">7</button></td>
-                <td><button type="button" id="8" onclick="lisaa('8')">8</button></td>
-                <td><button type="button" id="9" onclick="lisaa('9')">9</button></td>
-                <td><button type="button" id="kerto" onclick="lisaa('*')"">*</button></td>
+                <td><button data-number="7">7</button></td>
+                <td><button data-number="8">8</button></td>
+                <td><button data-number="9">9</button></td>
+                <td><button class="operator" data-operator="*">*</button></td>
             </tr>
+            <!-- Kolmannen rivin painikkeet -->
             <tr>
-                <td><button type="button" id="4" onclick="lisaa('4')">4</button></td>
-                <td><button type="button" id="5" onclick="lisaa('5')">5</button></td>
-                <td><button type="button" id="6" onclick="lisaa('6')">6</button></td>
-                <td><button type="button" id="miinus" onclick="lisaa('-')">-</button></td>
+                <td><button data-number="4">4</button></td>
+                <td><button data-number="5">5</button></td>
+                <td><button data-number="6">6</button></td>
+                <td><button class="operator" data-operator="-">-</button></td>
             </tr>
+            <!-- Neljännen rivin painikkeet -->
             <tr>
-                <td><button type="button" id="1" onclick="lisaa('1')">1</button></td>
-                <td><button type="button" id="2" onclick="lisaa('2')">2</button></td>
-                <td><button type="button" id="3" onclick="lisaa('3')">3</button></td>
-                <td><button type="button" id="plus" onclick="lisaa('+')">+</button></td>
+                <td><button data-number="1">1</button></td>
+                <td><button data-number="2">2</button></td>
+                <td><button data-number="3">3</button></td>
+                <td><button class="operator" data-operator="+">+</button></td>
             </tr>
+            <!-- Viimeisen rivin painikkeet -->
             <tr>
-                <td colspan="2"><button type="button" id="0" onclick="lisaa('0')">0</button></td>
-                <td><button type="button" id="pilkku" onclick="lisaa(',')">,</button></td>
-                <td><button type="button" id="yhtSuuri" onclick="laske()">=</button></td>
+                <td colspan="2"><button data-number="0">0</button></td>
+                <td><button class="operator" data-operator=",">,</button></td>
+                <td><button class="operator" data-operator="=">=</button></td>
             </tr>
         </table>
+        <script src="Projekti3.js"></script>
     </main>
 </body>
 </html>
