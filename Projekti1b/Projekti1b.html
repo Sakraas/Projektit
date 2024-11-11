@@ -16,52 +16,63 @@
             <!-- Nimen syöttö -->
             <tr>
                 <td>
-                    <label for="nimi" id="nimisyotto">Nimi:</label><br>
-                    <input type="text" id="nimi" name="nimi">
+                    <label for="nimi" id="nimisyotto" class="otsikko">Nimi:</label>
+                    <div class="vastaukset">
+                    <input type="text" id="nimi" name="nimi" class="teksti">
+                    </div>
                 </td>    
             </tr>
             <!-- Sähköpostin syöttö -->
             <tr>
                 <td>
-                    <label for="email" id="emailsyotto">Sähköposti:</label><br>
-                    <input type="email" id="email" name="email">
+                    <label for="email" id="emailsyotto" class="otsikko">Sähköposti:</label>
+                    <div class="vastaukset" >
+                    <input type="email" id="email" name="email" class="teksti">
+                    </div>
                 </td>
             </tr>
             <!-- Iän syöttö, pelkkänä numerona -->
             <tr>
                 <td>
-                    <label for="ika" id="ikasyotot">Ikä:</label><br>
-                    <input type="number" id="ika" name="ika">
+                    <label for="ika" id="ikasyotot" class="otsikko">Ikä:</label>
+                    <div  class="vastaukset">
+                    <input type="number" id="ika" name="ika" class="teksti">
+                    </div>
                 </td>
             </tr>
             <!-- Pudotusvalikko ja sen valinta vaihtoehdot -->
             <tr>
                 <td>
-                    <label for="">Puhelimen käyttö päivässä</label><br>
+                    <label for="" class="otsikko">Puhelimen käyttö päivässä</label>
+                    <div class="vastaukset">
                     <select name="pudotus" id="pudotus">
                         <option value="nolla">0-2</option>
                         <option value="kolme" id="kolme">3-5h</option>
                         <option value="kuusi" id="kuusi">6-8h</option>
                         <option value="kahdeksan" id="kahdeksan">yli 8h</option>
                     </select>
+                    </div>
                 </td>
             </tr>
             <!-- Radio valinta ruutu -->
             <tr>
                 <td>
-                    <label for="gender">Sukupuoli:</label><br>
+                    <label for="gender" class="otsikko">Sukupuoli:</label>
+                    <div class="vastaukset">
                     <input type="radio" id="nainen" name="gender" value="nainen" checked>
                     <label for="nainen">Nainen</label><br>
                     <input type="radio" id="mies" name="gender" value="mies">
                     <label for="mies">Mies</label><br>
                     <input type="radio" id="muu" name="gender" value="muu">
                     <label for="muu">En halua kertoa</label>
+                    </div>
                 </td>
             </tr>
             <!-- Checkbox valinnat -->
             <tr>
                 <td>
-                    <label for="elain">Mistä eläimistä tykkäät?</label><br>
+                    <label for="elain" class="otsikko">Mistä eläimistä tykkäät?</label>
+                    <div class="vastaukset">
                     <input type="checkbox" name="koira" id="koira" value="koira">
                     <label for="koira">Koira</label><br>
                     <input type="checkbox" name="kissa" id="kissa" value="kissa">
@@ -70,13 +81,16 @@
                     <label for="kani">Kani</label><br>
                     <input type="checkbox" name="Kilpikonna" id="kilpikonna" value="kilpikonna">
                     <label for="kilpikonna">Kilpikonna</label>
+                    </div>
                 </td>
             </tr>
             <!-- Text area -->
             <tr>
                 <td>
-                    <label for="palaute">Anna vapaamuotoinen palaute</label><br>
-                    <textarea name="palaute" id="palaute" cols="35" rows="5"></textarea>
+                    <label for="palaute" class="otsikko">Anna vapaamuotoinen palaute</label>
+                    <div class="vastaukset">
+                    <textarea name="palaute" id="palaute" rows="5" class="teksti"></textarea>
+                    </div>
                 </td>
             </tr>
         </table>
