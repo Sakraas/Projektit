@@ -27,3 +27,7 @@ table {
 .teksti{
     width: 265px;
 }
+
+button{
+    width: 100%;
+}
