@@ -4,10 +4,26 @@ body {
     box-sizing: border-box;
     background-color: black;
 }
-#otsikko {
-    text-align: center;
+
+table {
+    width: 100%;
 }
+
+.otsikko {
+    width: 50%;
+}
+
 #kyselylomake {
     background-color:khaki;
     border-radius: 5px;
+}
+
+.vastaukset {
+    width: 55%;
+    text-align: left;
+    float: right;
+}
+
+.teksti{
+    width: 265px;
 }
