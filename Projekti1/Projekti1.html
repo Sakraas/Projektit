@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linkittää fontit ja CSS tiedoston -->
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,16 +12,20 @@
 </head>
 <body>
     <main> 
+        <!-- Luodaan lomakkenpohja -->
         <form action="">
             <h1>Kirjautumislomake</h1>
 
+            <!-- Syöttökenttä käyttäjälle -->
             <label for="user">Nimi:</label>
             <input type="text" id="user">
 
+            <!-- Syöttökenttä salasanalle -->
             <label for="pw">Salasana:</label>
             <input type="password" id="pw">
             
             <h3>Millainen koneen käyttäjä olet?</h3>
+            <!-- Radio painikkeet kyselylle -->
             <input type="radio" name="radio" id="himopelaaja" />
             <label for="himopelaaja">himopelaaja</label><br />
             <input type="radio" name="radio" id="opiskeluun" />
@@ -30,6 +35,7 @@
 <br />
 
             <h3>Mitä mieltä olet sivustani tähän asti?</h3>
+            <!-- Valinta painikkeet kysymykselle -->
             <input type="checkbox" id="mielipide1" />
             <label for="mielipide1">Todella hienot</label><br />
             <input type="checkbox" id="mielipide2" />
@@ -39,6 +45,7 @@
             
 
             <h3>Mikä on lempiaineesi Keudassa?</h3>
+            <!-- Alasvetovalikko -->
             <label for="lempiaine"></label>
             <select id="lempiaine">
                 <option value="ammattiaineet">ammattiaineet</option>
@@ -46,16 +53,20 @@
             </select>
 
             <h3>Kerro, miten kehittäisit sivujani</h3>
+            <!-- Kehitysidealle tekstikenttä -->
             <label for="kehitysidea"></label>
             <textarea id="kehitysidea" cols="35" rows="10"></textarea><br />
 
+            <!-- Tyhjennys painike -->
             <label for="tyhjenna"></label>
             <button id="tyhjenna" onclick="reset()">Reset</button>
 
+            <!-- Tietojen lähetys painike -->
             <label for="laheta"></label>
             <button id="laheta" onclick="send(event)">Lähetä</button>
         </form>
     </main>
+    <!-- JS tiedoston linkitys -->
     <script src="projekti1.js"></script>
 </body>
 </html>
