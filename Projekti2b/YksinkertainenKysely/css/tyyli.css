@@ -1,3 +1,4 @@
+/* Määritetään taustan väri ja keskitetään se */
 body {
     max-width: 50%;
     margin: 0 auto;
@@ -5,14 +6,17 @@ body {
     background-color: aqua;
     text-shadow: 0 0 20px rgba(0,0,0,0.4);;
 }
+/* Määritetään lomaketta */
 form {
     background-color:sandybrown;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
+/* H3 otsikkoa hieman keskemmälle */
 h3 {
     margin-left: 50px;
 }
+/* Radio painikkeen muotoilua */
 input[type=radio] {
     margin-left: 25px;
     background-color: #ddd;
@@ -32,19 +36,7 @@ input[type=radio] {
     position: relative;
     width: 15px;
 }
-input[type="radio"]:after {
-    background-color: #444;
-    border-radius: 25px;
-    box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
-                0 1px 1px hsla(0,0%,100%,.8);
-    content: '';
-    display: block;
-    height: 7px;
-    left: 4px;
-    position: relative;
-    top: 4px;
-    width: 7px;
-}
+/* Radio painikkeen muotoilua kun on valittuna */
 input[type="radio"]:checked:after {
     background-color: #f66;
     box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
@@ -52,6 +44,7 @@ input[type="radio"]:checked:after {
                 0 1px 1px hsla(0,0%,100%,.8),
                 0 0 2px 2px hsla(0,70%,70%,.4);
 }
+/* Lähetä painikkeen muotoilua */
 input[type=submit] {
     padding:5px 15px; 
     background:#ccc; 
