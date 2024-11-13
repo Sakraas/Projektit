@@ -1,3 +1,4 @@
+
 /* Määritetään taustan väri ja keskitetään se */
 body {
     max-width: 50%;
@@ -12,7 +13,11 @@ form {
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
-/* H3 otsikkoa hieman keskemmälle */
+/* H1 ja p tekstin keskitys */
+h1, p {
+    text-align: center;
+}
+/* H3 otsikkoa hieman keskemmälle lomakkeessa */
 h3 {
     margin-left: 50px;
 }
