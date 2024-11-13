@@ -1,57 +1,62 @@
+// Tehty JSprojekteja kirjan koodin mukaan. Oli mielestäni hieno uusi tapa tehdä koodia
+// Lisätty "C" toiminto laskimeen
+
+
 document.addEventListener("DOMContentLoaded", () => {
     
-    const display = document.getElementById("tulos");
-    const buttons = document.querySelectorAll("button");
+    const display = document.getElementById("tulos");       // Tehdään laskimen näyttö muuttuja
+    const buttons = document.querySelectorAll("button");    // Valitaan kaikki laskimen painikkeet
 
-    let nykyinenOperaattori = "";
-    let edellinenOperaattori = "";
-    let operaattori = null;
+    let nykyinenOperaattori = "";       //
+    let edellinenOperaattori = "";      // Muuttujat laskutoimituksille
+    let operaattori = null;             //
 
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            if (button.hasAttribute("data-number")) {
-                appendNumber(button.getAttribute("data-number"));
+    buttons.forEach((button) => {                                   // Käydään läpi kaikki painikkeet
+        button.addEventListener("click", () => {                    // ja lisätään klikkaus "event" niille    
+            
+            if (button.hasAttribute("data-number")) {               //
+                appendNumber(button.getAttribute("data-number"));   // Käsitellään numeronpainikkeet
             }
-            else if (button.hasAttribute("data-operator")) {
-                chooseOperator(button.getAttribute("data-operator"));
+            else if (button.hasAttribute("data-operator")) {          //
+                chooseOperator(button.getAttribute("data-operator")); // Käsitellään laskutoimituspainikkeet
             }
-            else if (button.id === "yhtSuuri") {
-                compute();
+            else if (button.id === "yhtSuuri") {                      //
+                laske();                                              // Yhtäsuuripainike
             }
-            else if (button.id === "reset") {
-                clear();
+            else if (button.id === "reset") {                         //
+                nollaus();                                            // Nollauspainike
             }
-            else if (button.id === "delete") {
-                nykyinenOperaattori = "";
+            else if (button.id === "delete") {                        //
+                nykyinenOperaattori = "";                             // Kumoa toimintopainike
             }
-            updateDisplay();
+            updateDisplay();                                          // Päivittää toiminnon näkyviin näytölle
         })
     })
 
-    function appendNumber(numero) {
-        if (numero === "0" && nykyinenOperaattori === "0") return;
-        nykyinenOperaattori = nykyinenOperaattori.toString() + numero.toString();
+    function appendNumber(numero) {                                                 // Funktio lisää numeron arvoon
+        if (numero === "0" && nykyinenOperaattori === "0") return;                  // Estetään ylimääräisien nollien lisäämine alkuun
+        nykyinenOperaattori = nykyinenOperaattori.toString() + numero.toString();   // Lisää arvon nykyiseen tapahtumaan
     }
-    function chooseOperator(valittuOperaattori) {
-        if (nykyinenOperaattori === "") return;
-        if (edellinenOperaattori !== "") {
-            compute();
+    function chooseOperator(valittuOperaattori) {       // Funktio operaattorin valitsimeksi
+        if (nykyinenOperaattori === "") return;         // Ei tehdä mitään jos tyhjä
+        if (edellinenOperaattori !== "") {              // Suoritetaan lasku jos nykyinen ja edellinen operaattorissa on arvo
+            laske();
         }
-        operaattori = valittuOperaattori;
-        edellinenOperaattori = nykyinenOperaattori;
-        nykyinenOperaattori = "";
+        operaattori = valittuOperaattori;               //
+        edellinenOperaattori = nykyinenOperaattori;     // Valmistellaan seuraavaa numeroa varten
+        nykyinenOperaattori = "";                       //
     }
-    function compute() {
+    function laske() {                                      // Funktio laskutoitukselle
         let computation;
         const prev = parseFloat(edellinenOperaattori);
         const current = parseFloat(nykyinenOperaattori);
-        if (isNaN(prev) || isNaN(current)) return;
+        if (isNaN(prev) || isNaN(current)) return;          // Ei tehdä mitään jos arvot on tyhjä
 
-        switch (operaattori) {
+        switch (operaattori) {                              
             case "+":
                 computation = prev + current;
-                break;
-            case "-":
+                break;                                      // Lasketaan valitun operaattorin mukaan
+            case "-":                                       //
                 computation = prev - current;
                 break;
             case "*":
@@ -63,20 +68,20 @@ document.addEventListener("DOMContentLoaded", () => {
             default:
                 return;
         }
-        nykyinenOperaattori = computation;
+        nykyinenOperaattori = computation;              // Päivitetään nykyinen operand tuloksella ja nollataan muut arvot
         operaattori = null;
         edellinenOperaattori = "";
     }
         
-    function clear() {
+    function nollaus() {                                // Nollattaan laskin
         nykyinenOperaattori = "";
         edellinenOperaattori = "";
         operaattori = null;
     }
-    function updateDisplay() {
-        display.textContent = nykyinenOperaattori || "0";
+    function updateDisplay() {                              // Päivitetään näyttö
+        display.textContent = nykyinenOperaattori || "0";   // Näytetään nykyinenarvo tai nolla jos ei ole numeroa
     }
 
-    clear();
+    nollaus();                            // Tyhjennetään laskin sovelluksen käynnistyessä
 
 })
