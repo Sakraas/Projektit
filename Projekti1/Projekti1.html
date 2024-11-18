@@ -26,21 +26,21 @@
             
             <h3>Millainen koneen käyttäjä olet?</h3>
             <!-- Radio painikkeet kyselylle -->
-            <input type="radio" name="radio" id="himopelaaja" />
+            <input type="radio" name="radio" id="himopelaaja" value="pelaaja"/>
             <label for="himopelaaja">himopelaaja</label><br />
-            <input type="radio" name="radio" id="opiskeluun" />
+            <input type="radio" name="radio" id="opiskeluun" value="opiskelu"/>
             <label for="opiskeluun">käytän opiskeluun</label><br />
-            <input type="radio" name="radio" id="enkaytakonetta" />
+            <input type="radio" name="radio" id="enkaytakonetta" value="enkayta"/>
             <label for="enkaytakonetta">en käytä konetta</label><br />
 <br />
 
             <h3>Mitä mieltä olet sivustani tähän asti?</h3>
             <!-- Valinta painikkeet kysymykselle -->
-            <input type="checkbox" id="mielipide1" />
+            <input type="checkbox" name="checkbox" id="mielipide1" value="mielipide1"/>
             <label for="mielipide1">Todella hienot</label><br />
-            <input type="checkbox" id="mielipide2" />
+            <input type="checkbox" name="checkbox" id="mielipide2" value="mielipide2"/>
             <label for="mielipide2">Ammattimaisesti tehty</label><br />
-            <input type="checkbox" id="mielipide3" />
+            <input type="checkbox" name="checkbox" id="mielipide3" value="mielipide3"/>
             <label for="mielipide3">Ostan sinulta!</label><br />
             
 
@@ -48,14 +48,15 @@
             <!-- Alasvetovalikko -->
             <label for="lempiaine"></label>
             <select id="lempiaine">
-                <option value="ammattiaineet">ammattiaineet</option>
-                <option value="ohjelmointi">ohjelmointi</option>
+                <option value="" name="aine">Valitse</option>
+                <option value="2" name="aine">ammattiaineet</option>
+                <option value="3" name="aine">ohjelmointi</option>
             </select>
 
             <h3>Kerro, miten kehittäisit sivujani</h3>
             <!-- Kehitysidealle tekstikenttä -->
             <label for="kehitysidea"></label>
-            <textarea id="kehitysidea" cols="35" rows="10"></textarea><br />
+            <textarea id="kehitysidea" cols="35" rows="10"></textarea value="idea"><br />
 
             <!-- Tyhjennys painike -->
             <label for="tyhjenna"></label>
