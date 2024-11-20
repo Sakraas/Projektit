@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekti 6</title>
+</head>
+<body>
+    <form>
+        <h2>Yhteysieto lomake</h2>
+        <table>
+            <!-- Etunimen syöttö -->
+            <tr>
+                <td>
+                    <label for="enimi" class="otsikko">Etunimi:</label>
+                    <div class="vastaukset">
+                    <input type="text" id="snimi" name="snimi" class="teksti">
+                    </div>
+                </td>    
+            </tr>
+            <!-- Sukunimen syöttö -->
+            <tr>
+                <td>
+                    <label for="snimi" class="otsikko">Sukunimi:</label>
+                    <div class="vastaukset" >
+                    <input type="text" id="snimi" name="snimi" class="teksti">
+                    </div>
+                </td>
+            </tr>
+            <!-- Lähiosoitteen syöttö -->
+            <tr>
+                <td>
+                    <label for="osoite" class="otsikko">Osoite:</label>
+                    <div  class="vastaukset">
+                    <input type="text" id="osoite" name="osoite" class="teksti">
+                    </div>
+                </td>
+            </tr>
+            <!-- Postinumeron syöttö -->
+            <tr>
+                <td>
+                    <label for="pnro" class="otsikko">Postinumero:</label>
+                    <div  class="vastaukset">
+                    <input type="text" id="prno" name="pnro" class="teksti">
+                    </div>
+                </td>
+            </tr>
+            <!-- Postitoimipaikan syöttö -->
+            <tr>
+                <td>
+                    <label for="ptp" class="otsikko">Postitoimipaikka:</label>
+                    <div  class="vastaukset">
+                    <input type="text" id="ptp" name="ptp" class="teksti">
+                    </div>
+                </td>
+            </tr>
+            <!-- Puhelinnumeron syöttö -->
+            <tr>
+                <td>
+                    <label for="puhnro" class="otsikko">Puhelinnumero:</label>
+                    <div  class="vastaukset">
+                    <input type="number" id="puhnro" name="puhnro" class="teksti">
+                    </div>
+                </td>
+            </tr>
+            <!-- Sähköpostin syöttö -->
+            <tr>
+                <td>
+                    <label for="sposti" class="otsikko">Sähköposti:</label>
+                    <div  class="vastaukset">
+                    <input type="email" id="sposti" name="sposti" class="teksti">
+                    </div>
+                </td>
+            </tr>
+            </table>
+            <!-- Painikkeet -->
+            <button type="button" onclick="laheta()" id="laheta">Lähetä</button>
+            <button type="button" onclick="reset()" id="reset">Tyhjennä</button>
+    </form>
+</body>
+</html>

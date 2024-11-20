@@ -29,6 +29,10 @@ table {
 }
 
 button{
-    width: 100%;
+    width: 50%;
     height: 50px;
+}
+
+#reset{
+    margin-left: -4px;
 }
