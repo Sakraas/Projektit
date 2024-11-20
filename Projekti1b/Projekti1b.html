@@ -46,6 +46,7 @@
                     <label for="" class="otsikko">Puhelimen käyttö päivässä</label>
                     <div class="vastaukset">
                     <select name="pudotus" id="pudotus">
+                        <option value="eiValittu">(tyhjä)</option>
                         <option value="nolla">0-2</option>
                         <option value="kolme" id="kolme">3-5h</option>
                         <option value="kuusi" id="kuusi">6-8h</option>
@@ -95,9 +96,9 @@
             </tr>
         </table>
         <!-- Lähetä painike -->
-        <button type="button" onclick="laheta()" id="laheta">Lähetä</button>
-        <button type="button" onclick="reset()" id="reset">Tyhjennä</button>
+        <button type="button" onclick="lahetaTiedot()" id="laheta">Lähetä</button>
+        <button type="button" onclick="resetTiedot()" id="reset">Tyhjennä</button>
     </form>
 </body>
-    <script src="projekti1b.js"></script>
+    <script type="text/javascript" src="projekti1b.js"></script>
 </html>

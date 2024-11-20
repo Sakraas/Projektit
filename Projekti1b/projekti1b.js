@@ -1,131 +1,65 @@
-// Lomakkeen lähetyksen käsittely
-function laheta() {
-    // Haetaan syöteelementit
+// Funktio lomakkeen lähettämiselle
+function lahetaTiedot() {
+    // Haetaan lomakkeen kentät
     const nimi = document.getElementById('nimi').value;
     const email = document.getElementById('email').value;
     const ika = document.getElementById('ika').value;
-    const ruutuAika = document.getElementById('pudotus').value;
-    const palaute = document.getElementById('palaute').value;
-    const sukupuoli = document.getElementsByName("gender");
-
-    // Tarkistetaan nimen pituus
-    if (nimi.length < 2) {
-        alert("Nimen tulee olla vähintään 2 merkkiä pitkä.");
-        return;
-    }
-
-    // Tarkistetaan sähköpostin muoto
-    if (!validateEmail(email)) {
-        alert("Sähköposti on virheellisessä muodossa.");
-        return;
-    }
-
-    // Tarkistetaan iän arvo
-    if (ika < 1 || ika > 120) {
-        alert("Iän tulee olla 1-120 vuotta.");
-        return;
-    }
-
-    // Tarkistetaan ruutuajan määrä
-    if (ruutuAika === "") {
-        alert("Täytä sopiva vaihtoehto kohtaan: Puhelimen käyttö päivässä.");
-        return;
-    }
-
-    // Tarkistetaan onko sukupuoli määritelty
-    if (sukupuoli === "") {
-        alert("Määritä sukupuoli");
-        return;
-    }
-
-    // Näytetään onnistumisviesti ja tulostetaan tiedot
-    alert("Lomake lähetetty onnistuneesti!\n\n" +
-          "Nimi: " + nimi + "\n" +
-          "Sähköposti: " + email + "\n" +
-          "Ikä: " + ika + "\n" +
-          "Palaute: " + palaute);
+    const puhelinKaytto = document.getElementById('pudotus').value;
+    const sukupuoli = document.querySelector('input[name="gender"]:checked');
+    const elaimet = document.querySelectorAll('input[name="koira"]:checked, input[name="kissa"]:checked, input[name="kani"]:checked, input[name="kilpikonna"]:checked');
     
+    // Alustetaan virheviestit
+    let virheViesti = '';
+
+    // Tarkistetaan, että nimi on annettu
+    if (nimi.trim() === '') {
+        virheViesti += 'Nimi on pakollinen.\n';
+    }
+
+    // Tarkistetaan, että sähköposti on annettu ja se on oikeassa muodossa
+    if (email.trim() === '') {
+        virheViesti += 'Sähköposti on pakollinen.\n';
+    } else if (!validateEmail(email)) {
+        virheViesti += 'Sähköpostiosoite ei ole kelvollinen.\n';
+    }
+
+    // Tarkistetaan, että ikä on annettu ja se on järkevä luku
+    if (ika.trim() === '' || isNaN(ika) || ika < 1 || ika > 120) {
+        virheViesti += 'Ikä on pakollinen ja sen tulee olla välillä 1-120.\n';
+    }
+
+    // Tarkistetaan, että puhelimen käyttöaika on valittu
+    if (puhelinKaytto === 'eiValittu') {
+        virheViesti += 'Valitse kuinka paljon käytät puhelinta päivittäin.\n';
+    }
+
+    // Tarkistetaan, että sukupuoli on valittu
+    if (!sukupuoli) {
+        virheViesti += 'Valitse sukupuolesi.\n';
+    }
+
+    // Tarkistetaan, että ainakin yksi eläinvalinta on tehty
+    if (elaimet.length === 0) {
+        virheViesti += 'Valitse ainakin yksi eläin, josta pidät.\n';
+    }
+
+    // Jos on virheitä, näytetään ne ja estetään lomakkeen lähettäminen
+    if (virheViesti !== '') {
+        alert('Virheellisiä tietoja:\n' + virheViesti);
+    } else {
+        // Jos kaikki on kunnossa, voidaan lähettää lomake
+        alert('Lomake lähetetty onnistuneesti!');
+        document.getElementById('kyselylomake').submit(); // Lähetetään lomake
+    }
 }
 
-// Sähköpostin muotoa tarkistava funktio
+// Funktio sähköpostin validointiin
 function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
+    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return re.test(email);
 }
 
-function reset()
-{
-    formElement.reset() 
+// Funktio päivittää sivun
+function resetTiedot() {
+    location.reload();
 }
-
-// // Haetaan kaikki sukupuoliradiopainikkeet
-// var genderRadios = document.getElementsByName("gender");
-// var selectedGender = false;
-
-// // Tarkistetaan, onko mikään radiopainike valittuna
-// for (var i = 0; i < genderRadios.length; i++) {
-//     if (genderRadios[i].checked) {
-//         selectedGender = true;
-//         break;
-//     }
-// }
-
-// // Jos sukupuolta ei ole valittu, näytetään virheilmoitus
-// if (!selectedGender) {
-//     document.getElementById("error-message").style.display = "block";
-
-
-// <!-- Pudotusvalikko ja sen valinta vaihtoehdot -->
-//             <tr>
-//                 <td>
-//                     <label for="" class="otsikko">Puhelimen käyttö päivässä</label>
-//                     <div class="vastaukset">
-//                     <select name="pudotus" id="pudotus">
-//                         <option value="nolla">0-2</option>
-//                         <option value="kolme" id="kolme">3-5h</option>
-//                         <option value="kuusi" id="kuusi">6-8h</option>
-//                         <option value="kahdeksan" id="kahdeksan">yli 8h</option>
-//                     </select>
-//                     </div>
-//                 </td>
-//             </tr>
-//             <!-- Radio valinta ruutu -->
-//             <tr>
-//                 <td>
-//                     <label for="gender" class="otsikko">Sukupuoli:</label>
-//                     <div class="vastaukset">
-//                     <input type="radio" id="nainen" name="gender" value="nainen" checked>
-//                     <label for="nainen">Nainen</label><br>
-//                     <input type="radio" id="mies" name="gender" value="mies">
-//                     <label for="mies">Mies</label><br>
-//                     <input type="radio" id="muu" name="gender" value="muu">
-//                     <label for="muu">En halua kertoa</label>
-//                     </div>
-//                 </td>
-//             </tr>
-//             <!-- Checkbox valinnat -->
-//             <tr>
-//                 <td>
-//                     <label for="elain" class="otsikko">Mistä eläimistä tykkäät?</label>
-//                     <div class="vastaukset">
-//                     <input type="checkbox" name="koira" id="koira" value="koira">
-//                     <label for="koira">Koira</label><br>
-//                     <input type="checkbox" name="kissa" id="kissa" value="kissa">
-//                     <label for="kissa">Kissa</label><br>
-//                     <input type="checkbox" name="kani" id="kani" value="kani">
-//                     <label for="kani">Kani</label><br>
-//                     <input type="checkbox" name="Kilpikonna" id="kilpikonna" value="kilpikonna">
-//                     <label for="kilpikonna">Kilpikonna</label>
-//                     </div>
-//                 </td>
-//             </tr>
-//             <!-- Text area -->
-//             <tr>
-//                 <td>
-//                     <label for="palaute" class="otsikko">Anna vapaamuotoinen palaute</label>
-//                     <div class="vastaukset">
-//                     <textarea name="palaute" id="palaute" rows="5" class="teksti"></textarea>
-//                     </div>
-//                 </td>
-//             </tr>
-//         </table>
