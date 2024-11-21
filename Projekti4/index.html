@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Linkitetään CSS tiedosto ja mahdolliset fontit -->
     <link rel="stylesheet" href="projekti4.css">     
     <title>Tehtävälista</title>
@@ -17,16 +17,15 @@
         <p>Napauta tehtävää, kun olet tehnyt sen</p>
         <p>Napauta tehtävän perässä X-kirjainta poistaaksesi tehtävän</p>
             <!-- Luodaan syöttökenttä ja painike -->
-            <input type="text" placeholder="Lisää tehtävä" id="lisaa">
-            <button id="nappi">Lisää</button>
+            <input type="text" placeholder="Lisää tehtävä" id="td">
+            <button id="nappi" onclick="lisaaTehtava()">Lisää</button>
         <!-- Luodaa lista mihin tehtävät tulevat -->
-        <ul>
+        <ul id="tehtavaLista">
+
         </ul>
-
         </div>
-
     </main>
-    <!-- Linkitetään JS tiedosto -->
-<script src=""></script>
 </body>
+    <!-- Linkitetään JS tiedosto -->
+    <script type="text/javascript" src="script.js"></script>
 </html>
