@@ -1,0 +1,35 @@
+
+body {
+    background-color: #123752;
+    /* Listan keskitys keskelle ruutua */
+    display: flex;       
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    background-color: #708FA3;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+button {
+    background-color: #123752;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+
+    background-image: radial-gradient(#29526d, #486F88);
+    background-repeat: no-repeat;
+
+    background-size: 1px 100%;
+    background-position: 0 0;
+    transition: background-size 0.3s, backgound-position 0.1s 0.3s;
+}
+    /* Hover efektin luonti */
+button:hover {
+    background-size: 100% 100%;
+    background-position: 50% 0;
+    transition: background-position 0.1s, background-size 0.3s 0.1s;
+    color: white;
+}
