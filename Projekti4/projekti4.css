@@ -6,13 +6,13 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+    /* Main elementin muokkaus */
 main{
     background-color: #708FA3;
     padding: 10px;
     border-radius: 20px;
 }
-
+    /* Painike efektin luonti */
 button {
     background-color: #123752;
     color: white;
