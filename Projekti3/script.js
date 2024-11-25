@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             else if (button.id === "delete") {                        //
                 nykyinenOperaattori = "";                             // Kumoa toimintopainike
             }
-            updateDisplay();                                         // Päivittää toiminnon näkyviin näytölle
-
+            updateDisplay();                                          // Päivittää toiminnon näkyviin näytölle
         })
     })
 
@@ -82,8 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateDisplay() {                             // Päivitetään näyttö
         display.textContent = nykyinenOperaattori || "0";   // Näytetään nykyinenarvo tai nolla jos ei ole numeroa
     }
-
-
 
     nollaus();                            // Tyhjennetään laskin sovelluksen käynnistyessä
 
