@@ -21,6 +21,11 @@ function laheta() {
     
     localStorage.setItem('user', JSON.stringify(kayttajatiedot))
 }
+
+function reset() {
+    localStorage.clear()
+}
 window.onload =function() {
     document.getElementById("kayttajatiedot").onsubmit = laheta
+    document.getElementById("reset").onclick = reset
 }
