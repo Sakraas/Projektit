@@ -3,7 +3,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     const display = document.getElementById("tulos");       // Tehdään laskimen näyttö muuttuja
     const buttons = document.querySelectorAll("button");    // Valitaan kaikki laskimen painikkeet
 
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         edellinenOperaattori = "";
         operaattori = null;
     }
-    function updateDisplay() {                              // Päivitetään näyttö
+    function updateDisplay() {                             // Päivitetään näyttö
         display.textContent = nykyinenOperaattori || "0";   // Näytetään nykyinenarvo tai nolla jos ei ole numeroa
     }
 

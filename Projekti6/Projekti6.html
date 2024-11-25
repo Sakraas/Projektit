@@ -6,7 +6,7 @@
     <title>Projekti 6</title>
 </head>
 <body>
-    <form>
+    <form id="kayttajatiedot">
         <h2>Yhteysieto lomake</h2>
         <table>
             <!-- Etunimen syöttö -->
@@ -14,7 +14,7 @@
                 <td>
                     <label for="enimi" class="otsikko">Etunimi:</label>
                     <div class="vastaukset">
-                    <input type="text" id="snimi" name="snimi" class="teksti">
+                    <input type="text" id="enimi" name="enimi" class="teksti">
                     </div>
                 </td>    
             </tr>
@@ -41,7 +41,7 @@
                 <td>
                     <label for="pnro" class="otsikko">Postinumero:</label>
                     <div  class="vastaukset">
-                    <input type="text" id="prno" name="pnro" class="teksti">
+                    <input type="number" id="pnro" name="pnro" class="teksti">
                     </div>
                 </td>
             </tr>
@@ -74,8 +74,9 @@
             </tr>
             </table>
             <!-- Painikkeet -->
-            <button type="button" onclick="laheta()" id="laheta">Lähetä</button>
+            <button type="submit" onclick="laheta()" id="laheta">Lähetä</button>
             <button type="button" onclick="reset()" id="reset">Tyhjennä</button>
     </form>
+    <script src="script6.js"></script>
 </body>
 </html>
