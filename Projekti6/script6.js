@@ -20,7 +20,7 @@ function laheta() {
         sahkoposti: sahkoPosti,
     }
     // Muunnetaan JSON
-    localStorage.setItem('user', JSON.stringify(kayttajatiedot))
+    localStorage.setItem(etuNimi, JSON.stringify(kayttajatiedot))
 }
 // Tyhjennettään localStorage
 function reset() {
