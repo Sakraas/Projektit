@@ -36,5 +36,5 @@ button:hover {
 
 #tehtavaLista {
     width: 290px;          /* Asetetaan kiinteä leveys */
-    overflow: auto;      /* Estää ylikasvavan sisällön levittämästä näyttöä yli leveäksi */
+    overflow-wrap: break-word;      /* Estää ylikasvavan sisällön levittämästä näyttöä yli leveäksi */
 }
