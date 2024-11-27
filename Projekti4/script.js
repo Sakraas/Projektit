@@ -17,4 +17,3 @@ function poistaTama(nappi) {
     listItem.remove(); // Poistaa sen
 }
 
-function 
