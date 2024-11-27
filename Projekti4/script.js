@@ -4,16 +4,31 @@ function lisaaTehtava() {
 
     if (arvo.trim() !== "") { // Varmistetaan, että syöte ei ole tyhjä
         let tehtavaListaan = document.createElement("li"); // Luodaan uusi <li> elementti
-        tehtavaListaan.innerHTML = arvo + ' <button onclick="poistaTama(this)">X</button>'; // Lisätään tehtävä ja poisto-nappi
 
-        document.getElementById("tehtavaLista").appendChild(tehtavaListaan); // Lisätään tehtävä listaan
+        // Luodaan tehtävän teksti ja poistopainike
+        let tehtavanTeksti = document.createElement("span");
+        tehtavanTeksti.textContent = arvo;
+        
+        // Lisätään tapahtumankuuntelija, joka yliviivaa tekstin klikkaamalla
+        tehtavanTeksti.addEventListener("click", function() {
+            tehtavanTeksti.style.textDecoration = (tehtavanTeksti.style.textDecoration === "line-through") ? "" : "line-through";
+        });
 
-        tehtava.value = ""; // Tyhjennetään syöttökenttä
+        // Luodaan poisto-nappi
+        let poistaNappi = document.createElement("button");
+        poistaNappi.textContent = "X";
+        poistaNappi.onclick = function() {
+            tehtavaListaan.remove(); // Poistaa tehtävän
+        };
+
+        // Liitetään tehtävän teksti ja poisto-nappi <li>:hen
+        tehtavaListaan.appendChild(tehtavanTeksti);
+        tehtavaListaan.appendChild(poistaNappi);
+
+        // Lisätään tehtävä listaan
+        document.getElementById("tehtavaLista").appendChild(tehtavaListaan);
+
+        // Tyhjennetään syöttökenttä
+        tehtava.value = "";
     }
 }
-
-function poistaTama(nappi) {
-    let listItem = nappi.parentElement; // Etsii listan kohteen, johon nappi kuuluu
-    listItem.remove(); // Poistaa sen
-}
-
