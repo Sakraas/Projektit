@@ -1,0 +1,33 @@
+body {
+    background-color: whitesmoke;
+}
+
+form {
+    background-color: burlywood;
+    width: 270px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+/* buttonit muotoilu */
+
+button {
+    margin: 5px 5px 0 0;
+    border-radius: 3px;
+}
+
+#laheta {
+    background-color: green;
+    color: white;
+}
+
+#reset {
+    background-color: red;
+    color: whitesmoke;
+}

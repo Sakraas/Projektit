@@ -25,6 +25,7 @@ button {
     background-size: 1px 100%;
     background-position: 0 0;
     transition: background-size 0.3s, backgound-position 0.1s 0.3s;
+    margin: 0 0 0 5px;
 }
     /* Hover efektin luonti */
 button:hover {
@@ -32,4 +33,14 @@ button:hover {
     background-position: 50% 0;
     transition: background-position 0.1s, background-size 0.3s 0.1s;
     color: white;
+}
+
+#tehtavaLista {
+    width: 290px;          /* Asetetaan kiinteä leveys */
+    overflow-wrap: break-word;      /* Estää ylikasvavan sisällön levittämästä näyttöä yli leveäksi */
+}
+
+li {
+    list-style-type: none;
+    margin: 5px -30px 0 -25px;
 }
