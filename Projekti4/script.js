@@ -6,7 +6,7 @@ function lisaaTehtava() {
         let tehtavaListaan = document.createElement("li"); // Luodaan uusi <li> elementti
         tehtavaListaan.innerHTML = arvo + ' <button onclick="poistaTama(this)">X</button>'; // Lisätään tehtävä ja poisto-nappi
 
-        document.getElementById("tehtavalista").appendChild(tehtavaListaan); // Lisätään tehtävä listaan
+        document.getElementById("tehtavaLista").appendChild(tehtavaListaan); // Lisätään tehtävä listaan
 
         tehtava.value = ""; // Tyhjennetään syöttökenttä
     }
@@ -16,3 +16,5 @@ function poistaTama(nappi) {
     let listItem = nappi.parentElement; // Etsii listan kohteen, johon nappi kuuluu
     listItem.remove(); // Poistaa sen
 }
+
+function 
