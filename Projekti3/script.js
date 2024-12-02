@@ -4,6 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const edellinen = document.getElementById("edellinentulos");
     const display = document.getElementById("tulos");       // Tehdään laskimen näyttö muuttuja
     const buttons = document.querySelectorAll("button");    // Valitaan kaikki laskimen painikkeet
 
