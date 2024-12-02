@@ -74,6 +74,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     var pieni = 16;
     var pienipeli = [];
+    var keski = 20;
+    var keskipeli = [];
+    var iso = 24;
+    var isopeli = [];
     const cardsArray =[
         "A","A",
         "B","B",
@@ -89,13 +93,25 @@ document.addEventListener("DOMContentLoaded", () => {
         "L","L"
     ];
 
-    for(var i = 0; i < pieni; i++)
+const vaik = document.getElementById("vaik").value;
+if(vaik = "helppo"){
+    pienipeli = for(var i = 0; i < pieni; i++)
     {
         pienipeli.push(cardsArray[i]);
     }
+}else if{
+    keskipeli = for(var i = 0; i < keski; i++)
+    {
+        keskipeli.push(cardsArray[i]);
+    }
+
+    isopeli = for(var i = 0; i < iso; i++)
+    {
+        isopeli.push(cardsArray[i]);
+    }
 
 
-    console.log(pienipeli);
+    console.log();
 
 // Korttien sekoitus
 let shuffledCards = shuffleArray(cardsArray);
