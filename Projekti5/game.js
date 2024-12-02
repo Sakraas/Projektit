@@ -1,50 +1,63 @@
-const cardsArray
+const vaikeus = document.getElementById("taso").value; //Vaikeusasteen haku
+const cardsArray =[
+    "A","A",
+    "B","B",
+    "C","C",
+    "D","D",
+    "E","E",
+    "F","F",
+    "G","G",
+    "H","H",
+    "I","I",
+    "J","J",
+    "K","K",
+    "L","L"
+];
 
-    if (vaikeus === "easy") {
-        cardsArray = [
-            "A","A",
-            "B","B",
-            "C","C",
-            "D","D",
-            "E","E",
-            "F","F",
-            "G","G",
-            "H","H"
-        ];
-    } else if (vaikeus === "medium") {
-        cardsArray = [
-            "A","A",
-            "B","B",
-            "C","C",
-            "D","D",
-            "E","E",
-            "F","F",
-            "G","G",
-            "H","H",
-            "I","I",
-            "J","J"
-        ];
-    } else if (vaikeus === "hard") {
-        cardsArray = [
-            "A","A",
-            "B","B",
-            "C","C",
-            "D","D",
-            "E","E",
-            "F","F",
-            "G","G",
-            "H","H",
-            "I","I",
-            "J","J",
-            "K","K",
-            "L","L"
-        ];
-    }
+    // if (vaikeus === "easy") {
+    //     cardsArray = [
+    //         "A","A",
+    //         "B","B",
+    //         "C","C",
+    //         "D","D",
+    //         "E","E",
+    //         "F","F",
+    //         "G","G",
+    //         "H","H"
+    //     ];
+    // } else if (vaikeus === "medium") {
+    //     cardsArray = [
+    //         "A","A",
+    //         "B","B",
+    //         "C","C",
+    //         "D","D",
+    //         "E","E",
+    //         "F","F",
+    //         "G","G",
+    //         "H","H",
+    //         "I","I",
+    //         "J","J"
+    //     ];
+    // } else if (vaikeus === "hard") {
+    //     cardsArray = [
+    //         "A","A",
+    //         "B","B",
+    //         "C","C",
+    //         "D","D",
+    //         "E","E",
+    //         "F","F",
+    //         "G","G",
+    //         "H","H",
+    //         "I","I",
+    //         "J","J",
+    //         "K","K",
+    //         "L","L"
+    //     ];
+    // }
 
 
 function paivitaWindowLocation() {
                 
-    const vaikeus = document.getElementById("taso").value; //Vaikeusasteen haku
 
 		if (vaikeus === "easy") {
             window.location.href = "http://127.0.0.1:5500/Projekti5/level1.html";
@@ -59,6 +72,8 @@ function paivitaWindowLocation() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    
 
 // Korttien sekoitus
 let shuffledCards = shuffleArray(cardsArray);
