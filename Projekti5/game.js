@@ -105,11 +105,12 @@ if(vaik = "helppo"){
         keskipeli.push(cardsArray[i]);
     }
 
+}else if{
     isopeli = for(var i = 0; i < iso; i++)
     {
         isopeli.push(cardsArray[i]);
     }
-
+}
 
     console.log();
 
