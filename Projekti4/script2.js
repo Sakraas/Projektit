@@ -1,18 +1,21 @@
 const tehtava = document.getElementById("td");
+tehtava.addEventListener("keypress",lisaaTehtava);
 const tehtavat = document.getElementsByTagName("li");
-const li = document.createElement("li");
-const valitse = document.querySelector("li");
+const ul = document.querySelector("ul");
 var enter = document.getElementById("nappi");
+enter.addEventListener("click",lisaaTehtava);
 
 function lisaaTehtava() {
-
-    if (tehtava === "") {
-        alert("Syötä tehtävä!");
-        return;
-    } else {
-        li.appendChild(document.createTextNode(tehtava.value))
+    var li = document.createElement("li");
+    if(tehtava.value != "") {
+        li.appendChild(createTextNode(tehtava.value));
+        ul.appendChild(li);
+        tehtava.value = "";
     }
-    // document.getElementsByTagName("li")[0].innerHTML = tehtava;
+    function vari() {
+        li.classList.toggle()
+    }
+
 }
 
 function tehtavaPituus() {
