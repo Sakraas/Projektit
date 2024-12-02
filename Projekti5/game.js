@@ -93,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "L","L"
     ];
 
-const vaik = document.getElementById("vaik").value;
 if(vaik = "helppo"){
     pienipeli = for(var i = 0; i < pieni; i++)
     {
