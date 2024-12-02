@@ -1,19 +1,18 @@
-const vaikeus = document.getElementById("taso").value; //Vaikeusasteen haku
-const cardsArray =[
-    "A","A",
-    "B","B",
-    "C","C",
-    "D","D",
-    "E","E",
-    "F","F",
-    "G","G",
-    "H","H",
-    "I","I",
-    "J","J",
-    "K","K",
-    "L","L"
-];
-
+// const cardsArray =[
+    //     "A","A",
+    //     "B","B",
+    //     "C","C",
+    //     "D","D",
+    //     "E","E",
+    //     "F","F",
+    //     "G","G",
+    //     "H","H",
+    //     "I","I",
+    //     "J","J",
+    //     "K","K",
+    //     "L","L"
+    // ];
+    
     // if (vaikeus === "easy") {
     //     cardsArray = [
     //         "A","A",
@@ -56,24 +55,47 @@ const cardsArray =[
     // }
 
 
-function paivitaWindowLocation() {
-                
+// function paivitaWindowLocation() {
 
-		if (vaikeus === "easy") {
-            window.location.href = "http://127.0.0.1:5500/Projekti5/level1.html";
-            getAllBefore('H');
-		} else if (vaikeus === "medium") {
-            window.location.href = "http://127.0.0.1:5500/Projekti5/level2.html";
-            getAllBefore('J');
-		} else if (vaikeus === "hard") {
-            window.location.href = "http://127.0.0.1:5500/Projekti5/level3.html";
-            getAllBefore('L');
-		}
-}
+// const vaikeus = document.getElementById("taso").value; //Vaikeusasteen haku
+
+// 		if (vaikeus === "easy") {
+//             window.location.href = "http://127.0.0.1:5500/Projekti5/level1.html";
+//             getAllBefore('H');
+// 		} else if (vaikeus === "medium") {
+//             window.location.href = "http://127.0.0.1:5500/Projekti5/level2.html";
+//             getAllBefore('J');
+// 		} else if (vaikeus === "hard") {
+//             window.location.href = "http://127.0.0.1:5500/Projekti5/level3.html";
+//             getAllBefore('L');
+// 		}
+// }
 
 document.addEventListener("DOMContentLoaded", () => {
+    var pieni = 16;
+    var pienipeli = [];
+    const cardsArray =[
+        "A","A",
+        "B","B",
+        "C","C",
+        "D","D",
+        "E","E",
+        "F","F",
+        "G","G",
+        "H","H",
+        "I","I",
+        "J","J",
+        "K","K",
+        "L","L"
+    ];
 
-    
+    for(var i = 0; i < pieni; i++)
+    {
+        pienipeli.push(cardsArray[i]);
+    }
+
+
+    console.log(pienipeli);
 
 // Korttien sekoitus
 let shuffledCards = shuffleArray(cardsArray);
