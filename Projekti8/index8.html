@@ -4,9 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="" />  <!-- tähän linkitys CSS -->
-    <title>Document</title>
+    <title>Scrumboard</title>
 </head>
 <body>
-    
+    <main>
+        <div id="scrumtaulu">
+
+            <h1>Scrum taulu</h1>
+
+
+            
+            <div>
+                <div class="box">
+                <input type="text" placeholder="Lisää tehtävä" id="td">
+                <button id="nappi" onclick="lisaaTehtava()">Lisää</button>
+
+                    <div id="box1" draggable="true">
+                        
+                        <ul id="tehtavaLista"></ul>
+
+                    </div>
+                </div>
+
+                <div class="box" draggable="true">
+
+                </div>
+
+                <div class="box" draggable="true">
+
+                </div>
+
+                <div class="box" draggable="true">
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </main>
 </body>
+    <script type="text/javascript" src="script.js"></script> <!-- linkitä JS tähän-->
 </html>
