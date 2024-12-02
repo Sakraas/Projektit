@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function updateDisplay() {                             // Päivitetään näyttö
         display.textContent = nykyinenOperaattori || "0";   // Näytetään nykyinenarvo tai nolla jos ei ole numeroa
+        
     }
 
     nollaus();                            // Tyhjennetään laskin sovelluksen käynnistyessä
