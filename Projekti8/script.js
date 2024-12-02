@@ -1,4 +1,33 @@
-const item = document.querySelector("");
+// var lisaa = document.getElementById("nappi")
+// lisaa.addEventListener("click", lisaaTehtava);
+
+var syotto = document.getElementById("td");
+// syotto.addEventListener("keypress", lisaaTehtavaEnter);
+
+var ul = document.querySelector("ul");
+
+function luoLista() {
+    var li = document.createElement("li");
+    if (syotto.value != "") {
+        li.appendChild(document.createTextNode(syotto.value));
+        ul.appendChild(li);
+        syotto.value = "";
+    }
+}
+
+function lisaaTehtava() {
+    luoLista();
+    // if (syotto.trim() !== "") {
+    // } 
+}
+
+// function lisaaTehtavaEnter() {
+//     if (syotto.trim() !== "" && event.which === 13) {
+//         luoLista();
+//     }
+// }
+
+const item = document.querySelector("scrumtaulu");
 item.addEventListener("dragstart", dragstart);
 
 function dragstart(e) {
