@@ -8,10 +8,12 @@
 </head>
 <body>
 
+    <main>
+
      <button type="button" onclick="location.href='index.html'">Mene kotisivulle</button> <!-- ohjaa tästä takaisin index.html-->
      
-     <div class="container">
-        <h1>Muistipeli</h1>
+     <div class="container" id="peliIkkuna">
+        <h1 id="h1black">Muistipeli</h1>
         <button id="start-game" onclick="paivitaWindowLocation()">Aloita peli</button>
         <div id="game-board"></div>
         <select id="taso">
@@ -21,6 +23,8 @@
         </select>
            
     </div>
-<script src="game.js"></script>     
+</main>
+
 </body>
+    <script src="game.js"></script>     
 </html>

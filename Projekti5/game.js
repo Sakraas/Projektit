@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardsArray = [
         "A", "A", "B", "B", "C", "C", "D", "D",
         "E", "E", "F", "F", "G", "G", "H", "H",
-        "I", "I", "J", "J", "K", "K", "L", "L"
+        "I", "I", "J", "J", "K", "K", "L", ""
     ];
 
     let kortit = [];
@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const gameBoard = document.getElementById("game-board");
 
+    // Aloita peli ja valitse vaikeustaso
     function peli() {
         const vaikeus = document.getElementById("taso").value;
         if (vaikeus === "easy") {
@@ -30,12 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
         createBoard();
     }
 
+    // Luo pelilauta ja kortit
     function createBoard() {
         gameBoard.innerHTML = ""; // Tyhjennä pelilauta ennen uuden luontia
-    
-        // Aseta ruudukon sarakkeiden määrä vaikeustason mukaan
+
         const vaikeus = document.getElementById("taso").value;
         let columns;
+
         if (vaikeus === "easy") {
             columns = 4; // 4x4
         } else if (vaikeus === "medium") {
@@ -43,25 +45,33 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (vaikeus === "hard") {
             columns = 6; // 4x6
         }
-    
-        // Päivitä CSS-ruudukon sarakkeiden määrä
-        gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-    
-        // Luo kortit ja lisää ne pelilautaan
+
+        gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`; // Aseta sarakkeet
+
         shuffledCards.forEach((cardValue) => {
             const card = document.createElement("div");
             card.classList.add("card");
             card.dataset.value = cardValue;
+
+            // Lisää kuva kortille (muista että kuvat ovat suurilla aakkosilla)
+            const img = document.createElement("img");
+            img.src = `/Projekti5/images/${cardValue}.png`; // Kuvan nimi on sama kuin kortin arvo, isolla
+            img.alt = cardValue;
+            img.style.display = "none"; // Aluksi kuva on piilotettu
+            card.appendChild(img);
+
             card.addEventListener("click", flipCard);
             gameBoard.appendChild(card);
         });
     }
-    
 
+    // Käännä kortti
     function flipCard() {
         if (lockBoard || this === firstCard) return;
+
         this.classList.add("flipped");
-        this.textContent = this.dataset.value;
+        const img = this.querySelector("img");
+        img.style.display = "block"; // Näytä kuva
 
         if (!firstCard) {
             firstCard = this;
@@ -72,35 +82,41 @@ document.addEventListener("DOMContentLoaded", () => {
         checkForMatch();
     }
 
+    // Tarkista, ovatko kortit samanlaiset
     function checkForMatch() {
         if (firstCard.dataset.value === secondCard.dataset.value) {
             disableCards();
+            checkGameOver(); // Tarkista pelin loppuminen, jos pari löytyy
         } else {
             unflipCards();
         }
     }
 
+    // Estä korttien uudelleen valinta
     function disableCards() {
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
         resetBoard();
     }
 
+    // Käännä kortit takaisin ympäri
     function unflipCards() {
         lockBoard = true;
         setTimeout(() => {
             firstCard.classList.remove("flipped");
             secondCard.classList.remove("flipped");
-            firstCard.textContent = "";
-            secondCard.textContent = "";
+            firstCard.querySelector("img").style.display = "none";
+            secondCard.querySelector("img").style.display = "none";
             resetBoard();
         }, 1000);
     }
 
+    // Nollaa peli ja varmista, että kortit eivät ole lukittuina
     function resetBoard() {
         [firstCard, secondCard, lockBoard] = [null, null, false];
     }
 
+    // Sekoita kortit
     function shuffleArray(array) {
         let currentIndex = array.length, randomIndex;
         while (currentIndex !== 0) {
@@ -113,6 +129,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return array;
     }
 
-    // Aloitusnappi kutsuu peliä
+    // Pelin lopetus tarkistus
+    function checkGameOver() {
+        const matchedCards = document.querySelectorAll(".matched");
+        if (matchedCards.length === shuffledCards.length) {
+            setTimeout(() => {
+                alert("Onneksi olkoon, voitit pelin!");
+            }, 500); // Viivästytä ilmoitusta hieman
+        }
+    }
+
+    // Lisää tapahtumakuuntelija pelin aloitusnappiin
     document.getElementById("start-game").addEventListener("click", peli);
 });
