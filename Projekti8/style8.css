@@ -2,15 +2,115 @@ body {
     background-color: black;
 }
 
-main {
-    background-color: green;
-    margin: auto;
+h1 {
+    text-align: center;
+    color: white;
 }
 
-.box, #tehtavaListaa {
+h6 {
+    color: black;
+    padding: 0 0 0 5px;
+}
+
+div {
+    overflow: auto;
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    background-color: brown;
+}
+
+.box {
+    display: inline-block;
+}
+
+ul {
+    margin: 2px 0 0 -40px;
+}
+
+li {
+    background-color: rgb(240, 240, 240);
+    list-style: none;
+    overflow-wrap: break-word;
+    padding: 0 0 0 5px;
+    margin: 2px;
+    border-radius: 2px;
+}
+
+main {
+    background-color: rgb(59, 59, 132);
+    margin: auto;
+    width: 900px;
+    border-radius: 2px;
+}
+
+
+/* h6 otsakkeiden koko määrittelyt */
+#sprintissaTehtavatTyot, #tyonAlla, #testauksessa, #valmis {
+    display: inline-block;
+    width: 219px;
+    height: 200px;
+    margin: 0px 0 10px 2px;
+}
+
+/* väri määrittelyt */
+#sprintissaTehtavatTyot, #sprith6 {
+    background-color: lightpink;
+}
+
+#tyonAlla, #tyoh6 {
+    background-color: yellow;
+}
+
+#testauksessa, #testh6 {
+    background-color: lightblue;
+}
+
+#valmis, #valmish6 {
+    background-color: green;
+}
+
+#sprith6, #tyoh6, #testh6, #valmish6 {
+    margin: 0 0 0 2px;
+    font-size: medium;
+    width: 214px;
+}
+
+button {
+    background-color: rgb(59, 59, 132);
+    color: white;
+    border-radius: 10px;
+}
+
+input {
+    margin: 0 0 0 5px;
+}
+
+#roskis {
+    margin: -7px 350px 10px;
+    width: 200px;
+    height: 20px;
+    background-color: rgb(254, 86, 86);
+    text-align: center;
+    border-radius: 30px;
+    color: white;
+}
+
+@keyframes pomppaa {
+    0% {
+        transform: translateY(0);  Alkuperäinen sijainti 
+    }
+    25% {
+        transform: translateY(-10px);  Liikkuu ylöspäin 
+    }
+    50% {
+        transform: translateY(5px);   Liikkuu alas 
+    }
+    75% {
+        transform: translateY(-5px);  Liikkuu taas ylöspäin 
+    }
+    100% {
+        transform: translateY(0);  Palaa alkuperäiseen sijaintiin 
+    }
+}
+
+.roskis-pomppii {
+    animation: pomppaa 0.5s ease-out;
 }

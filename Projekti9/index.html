@@ -6,31 +6,33 @@
     <link rel="stylesheet" type="text/css" href="">
     <title>Nimipäiväkalenteri</title>
 </head>
-<body>
+
+<body onload="nimipaivat()">
     <main>
         <div id="nimipv" class="kontti">
             <h1>Nimipäiväkalenteri</h1>
             
             <h3>Tänään:</h3>
-            <p></p>
+            <p id="tanaan"></p>
             
             <h3>Huomenna:</h3>
-            <p></p>
+            <p id="huomenna"></p>
             
             <h3>Eilen:</h3>
-            <p></p>
+            <p id="eilen"></p>
             
             <p>Anna päivä</p>
-            <input type="date" name="kalenteri" id="kalenteri">
-            <p>Nimipäiväänsä viettää</p>
+            <input type="date" name="kalenteri" id="kalenteri" onchange="nimipaivatValitse()">
+            <p id="valitsepv">Nimipäiväänsä viettää</p>
 
             <label for="nimi">Anna nimi:</label>
             <input type="text" id="nimi">
-            <p></p>
+            <p id="kirjoitanimi"></p>
+            <input type="button" value="Etsi" onclick="nimipaivatNimi()">
 
         </div>
     </main>
     
 </body>
-<script src="sricpt.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </html>
