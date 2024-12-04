@@ -20,13 +20,8 @@
 
     <div id="container">
 
-        <button id="start-game">Aloita peli</button>
-        <div id="game-board"></div>
-        <select id="taso">
-            <option value="easy">Helppo</option>
-            <option value="medium">Keskitaso</option>
-            <option value="hard">Vaikea</option>
-        </select>
+        <button id="start-game" onclick="paivitaWindowLocation()">Aloita peli</button>
+
            
     </div>
     
@@ -35,6 +30,6 @@
         <!-- window.location.href = " esim. level1.html " tulee tähän -->
 
     </nav>
-    <script type="text/javascript" src="game.js"></script>                           <!-- Linkitä tänne JavaScript -->
+    <script type="text/javascript" src="difficulty.js"></script>                           <!-- Linkitä tänne JavaScript -->
 </body>
 </html>

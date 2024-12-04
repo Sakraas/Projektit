@@ -10,28 +10,42 @@
     <main>
 
             <h1>Scrum taulu</h1>
-
-            <input type="text" placeholder="Lisää tehtävä" id="td">
-            <button id="nappi" onclick="lisaaTehtava()">Lisää</button>
             
             <div>
-                <div id="tehtavaListaa" draggable="true">
+                <div>
+                <h6 id="sprith6"> Sprintissä tehtävät työt</h6>
+                <div id="sprintissaTehtavatTyot" class="box">
+                    
+                    <input type="text" placeholder="Lisää tehtävä" id="td">
+                    <button id="nappi" onclick="lisaaTehtava()">Lisää</button>
+
                     <ul id="tehtavaLista"></ul>
                 </div>
-
-                <div class="box" draggable="true">
-
                 </div>
 
-                <div class="box" draggable="true">
-
+                <div>
+                <h6 id="tyoh6"> Työn alla</h6>
+                <div id="tyonAlla" draggable="true" class="box">
+                    
+                </div>
                 </div>
 
-                <div class="box" draggable="true">
+                <div>
+                <h6 id="testh6"> Testauksessa</h6>
+                <div id="testauksessa" draggable="true" class="box">
+                    
+                </div>
+                </div>
 
+                <div>
+                <h6 id="valmish6"> Valmis</h6>
+                <div id="valmis" draggable="true" class="box">
+                    
+                </div>
                 </div>
 
             </div>
+            <div id="roskis">Poista</div>       
 
     </main>
 </body>
