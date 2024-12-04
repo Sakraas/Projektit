@@ -8,22 +8,15 @@
 </head>
 <body>
     <main>
-        <div id="scrumtaulu">
 
             <h1>Scrum taulu</h1>
 
-
+            <input type="text" placeholder="Lisää tehtävä" id="td">
+            <button id="nappi" onclick="lisaaTehtava()">Lisää</button>
             
             <div>
-                <div class="box">
-                <input type="text" placeholder="Lisää tehtävä" id="td">
-                <button id="nappi" onclick="lisaaTehtava()">Lisää</button>
+                <div id="tehtavaLista" draggable="true">
 
-                    <div id="box1" draggable="true">
-                        
-                        <ul id="tehtavaLista"></ul>
-
-                    </div>
                 </div>
 
                 <div class="box" draggable="true">
@@ -39,10 +32,6 @@
                 </div>
 
             </div>
-
-
-
-        </div>
 
     </main>
 </body>
