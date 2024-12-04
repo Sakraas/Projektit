@@ -9,4 +9,5 @@ function paivitaWindowLocation() {
 		} else if (vaikeus === "hard") {
             window.location.href = "http://127.0.0.1:5500/Projekti5/level3.html"
 		}
+            peli()
 }

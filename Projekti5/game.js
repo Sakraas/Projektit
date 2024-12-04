@@ -71,51 +71,101 @@
 // 		}
 // }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const vaik = document.getElementById("vaik").value;
-    var pieni = 16;
-    var pienipeli = [];
-    var keski = 20;
-    var keskipeli = [];
-    var iso = 24;
-    var isopeli = [];
-    const cardsArray =[
-        "A","A",
-        "B","B",
-        "C","C",
-        "D","D",
-        "E","E",
-        "F","F",
-        "G","G",
-        "H","H",
-        "I","I",
-        "J","J",
-        "K","K",
-        "L","L"
-    ];
+// document.addEventListener("DOMContentLoaded", () => {
+//     const vaik = document.getElementById("vaik").value;
+//     var pieni = 16;
+//     var pienipeli = [];
+//     var keski = 20;
+//     var keskipeli = [];
+//     var iso = 24;
+//     var isopeli = [];
+//     const cardsArray =[
+//         "A","A",
+//         "B","B",
+//         "C","C",
+//         "D","D",
+//         "E","E",
+//         "F","F",
+//         "G","G",
+//         "H","H",
+//         "I","I",
+//         "J","J",
+//         "K","K",
+//         "L","L"
+//     ];
 
-if(vaik === "helppo"){
+
+function paivitaWindowLocation() {
+
+    const vaikeus = document.getElementById("taso").value;
+		if (vaikeus === "easy") {
+            window.location.href = "http://127.0.0.1:5500/Projekti5/level1.html";
+		} else if (vaikeus === "medium") {
+            window.location.href = "http://127.0.0.1:5500/Projekti5/level2.html"
+		} else if (vaikeus === "hard") {
+            window.location.href = "http://127.0.0.1:5500/Projekti5/level3.html"
+        }
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", ()  => {
+        var pieni = 16;
+        var pienipeli = [];
+        var keski = 20;
+        var keskipeli = [];
+        var iso = 24;
+        var isopeli = [];
+        var kortit = [];
+        const cardsArray =[
+            "A","A",
+            "B","B",
+            "C","C",
+            "D","D",
+            "E","E",
+            "F","F",
+            "G","G",
+            "H","H",
+            "I","I",
+            "J","J",
+            "K","K",
+            "L","L"
+        ];
+
     for(var i = 0; i < pieni; i++)
     {
         pienipeli.push(cardsArray[i]);
     }
-}else if(vaik === "keskivaikea"){
+
     for(var i = 0; i < keski; i++)
     {
         keskipeli.push(cardsArray[i]);
     }
 
-}else if(vaik === "vaikea"){
     for(var i = 0; i < iso; i++)
     {
         isopeli.push(cardsArray[i]);
     }
+
+function peli(){
+    const vaikeus = document.getElementById("taso").value;
+    console.log(vaikeus)
+    if(vaikeus === "easy") {
+        kortit = pienipeli;
+    } else if(vaikeus === "medium") {
+        kortit = keskipeli;
+    } else if(vaikeus === "hard") {
+        kortit = isopeli;
+        
+    }
+    console.log(kortit);
 }
-
-    console.log(keskipeli);
-
+peli();
+console.log(kortit);
+    
 // Korttien sekoitus
-let shuffledCards = shuffleArray(cardsArray);
+let shuffledCards = shuffleArray(kortit);
 // Korttien käännön seuranta sekä useamman kuin kahden kortin käännön esto
 let firstCard = null;
 let secondCard = null;
@@ -202,4 +252,5 @@ function shuffleArray(array) {
 }
 //Pelilaudan luonti sivun latautumisen jälkeen
 createBoard();
+
 });

@@ -9,8 +9,19 @@
 <body>
 
      <button type="button" onclick="location.href='index.html'">Mene kotisivulle</button> <!-- ohjaa tästä takaisin index.html-->
-    
-     <div class="container" id="vaik" value="helppo">
+     <div id="container">
+
+        <select id="taso">
+            <option value="easy">Taso1</option>
+            <option value="medium">Taso2</option>
+            <option value="hard">Taso3</option>
+          </select>
+
+          <button id="paivittaa" onclick="paivitaWindowLocation()">Siirry peliin</button>        <!-- nappia painamalla mennään valitulla tasolla peliin -->
+    <script src="difficulty.js"></script>
+    </div>
+     <div class="container">
+        <option></option>
         <h1>Muistipeli - Helppo</h1>
         <!-- pelin paikka on tässä -->
          <div class="game-board" id="game-board"></div>
