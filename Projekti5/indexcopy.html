@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">                                             <!-- Linkitä tänne haluamasi .css tiedosto -->
+    <title>Muistipeli</title>
+</head>
+<body>
+
+    <header>
+
+        <h1>Tervetuloa muistipeliin!</h1>
+
+        <p>Yritä muistaa kortit ja yhdistää parit mahdollisimman nopeasti.</p>
+
+        <p><strong>Ohjeet:</strong> Pelissä on useita kortteja, jotka ovat aluksi käännettyinä ympäri. Pyri muistamaan kortit ja yhdistämään samanlaiset kortit toisiinsa. Voit valita pelin koon ja pelata sen painamalla: Siirry peliin.</p>
+    
+    </header>
+
+    <div id="container">
+
+        <select id="taso">
+            <option value="easy">Taso1</option>
+            <option value="medium">Taso2</option>
+            <option value="hard">Taso3</option>
+          </select>
+
+          <button id="paivittaa" onclick="paivitaWindowLocation()">Siirry peliin</button>        <!-- nappia painamalla mennään valitulla tasolla peliin -->
+   
+    </div>
+    
+    <nav>   
+
+        <!-- window.location.href = " esim. level1.html " tulee tähän -->
+
+    </nav>
+    <script type="text/javascript" src="difficulty.js"></script>                           <!-- Linkitä tänne JavaScript -->
+</body>
+</html>
