@@ -1,9 +1,5 @@
 main {
-    background-color: aqua;
-}
-
-h1 {
-    margin: auto;
+    background-color: green;
 }
 
 .box {
@@ -13,5 +9,8 @@ h1 {
 }
 
 #tehtavaLista {
-    background-color: aqua;
+    background-color: red;
+    padding: 50px;
+    margin: 50px;
+    background-color: brown;
 }
