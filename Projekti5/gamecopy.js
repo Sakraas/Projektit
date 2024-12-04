@@ -95,17 +95,17 @@
 //     ];
 
 
-// function paivitaWindowLocation() {
+function paivitaWindowLocation() {
 
-//     const vaikeus = document.getElementById("taso").value;
-// 		if (vaikeus === "easy") {
-//             window.location.href = "http://127.0.0.1:5500/Projekti5/level1.html";
-// 		} else if (vaikeus === "medium") {
-//             window.location.href = "http://127.0.0.1:5500/Projekti5/level2.html"
-// 		} else if (vaikeus === "hard") {
-//             window.location.href = "http://127.0.0.1:5500/Projekti5/level3.html"
-//         }
-// }
+    const vaikeus = document.getElementById("taso").value;
+		if (vaikeus === "easy") {
+            window.location.href = "http://127.0.0.1:5500/Projekti5/level1.html";
+		} else if (vaikeus === "medium") {
+            window.location.href = "http://127.0.0.1:5500/Projekti5/level2.html"
+		} else if (vaikeus === "hard") {
+            window.location.href = "http://127.0.0.1:5500/Projekti5/level3.html"
+        }
+}
 
 
 
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", ()  => {
     }
 
 function peli(){
-    vaikeus = document.getElementById("taso").value;
+    const vaikeus = document.getElementById("taso").value;
     console.log(vaikeus)
     if(vaikeus === "easy") {
         kortit = pienipeli;
@@ -161,7 +161,7 @@ function peli(){
     }
     console.log(kortit);
 }
-
+peli();
 console.log(kortit);
     
 // Korttien sekoitus
@@ -171,86 +171,104 @@ let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
 
-const gameBoard = document.getElementById("game-board");
+    const gameBoard = document.getElementById("game-board");
 
-// Pelilaudan luonti ja korttien generointi
-
-function createBoard() {
-    shuffledCards.forEach((cardValue) => {
-        const card = document.createElement("div");
-        card.classList.add("card");  //luokka korttien ulkomuotoilua varten
-        card.dataset.value = cardValue;
-        card.addEventListener("click", flipCard); //Painallus efecktin luokka
-        gameBoard.appendChild(card);
-    });
-}
-
-/*Korttien kääntö funciton, funktio tarkistaa myös onko käännettävä kortti ensimmäinen vai toinen,
-jotta peli tietää estää useamman kuin kahden kortin käännön*/
-
-function flipCard() {
-    if (lockBoard || this === firstCard) return; //Estää korttien käännön jos käännettynä on jo 2 korttia tai löydät parin
-    this.classList.add("flipped"); //Luokka käännettyjä kortteja varten
-    this.textContent = this.dataset.value; //Kortin arvo näkyviin
-//Kortin tarkistus onko ensimmäinen kortti
-    if (!firstCard) {
-        firstCard = this;
-        return;
+    function peli() {
+        const vaikeus = document.getElementById("taso").value;
+        if (vaikeus === "easy") {
+            kortit = cardsArray.slice(0, pieni);
+        } else if (vaikeus === "medium") {
+            kortit = cardsArray.slice(0, keski);
+        } else if (vaikeus === "hard") {
+            kortit = cardsArray.slice(0, iso);
+        }
+        shuffledCards = shuffleArray(kortit);
+        createBoard();
     }
-    //Toinen käännettävä kortti
-    secondCard = this;
-    checkForMatch(); //Tarkistaa onko käännetyt kortit samat
-}
 
-//Tarkistus funktio onko kortit samat
-function checkForMatch() {
-    if (firstCard.dataset.value === secondCard.dataset.value) {
-        disableCards(); //Löydettyjen parien poisto käytöstä
-    } else {
-        unflipCards(); //Kääntää kortit takaisin jos ne eivät olleet pari
+    function createBoard() {
+        gameBoard.innerHTML = ""; // Tyhjennä pelilauta ennen uuden luontia
+    
+        // Aseta ruudukon sarakkeiden määrä vaikeustason mukaan
+        const vaikeus = document.getElementById("taso").value;
+        let columns;
+        if (vaikeus === "easy") {
+            columns = 4; // 4x4
+        } else if (vaikeus === "medium") {
+            columns = 5; // 4x5
+        } else if (vaikeus === "hard") {
+            columns = 6; // 4x6
+        }
+    
+        // Päivitä CSS-ruudukon sarakkeiden määrä
+        gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+    
+        // Luo kortit ja lisää ne pelilautaan
+        shuffledCards.forEach((cardValue) => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.dataset.value = cardValue;
+            card.addEventListener("click", flipCard);
+            gameBoard.appendChild(card);
+        });
     }
-}
+    
 
-//Funkito kortti parien käytöstä poisoon
+    function flipCard() {
+        if (lockBoard || this === firstCard) return;
+        this.classList.add("flipped");
+        this.textContent = this.dataset.value;
 
-function disableCards() {
-    firstCard.classList.add("matched"); //Ensimmäisen kortin merkkaus vastaavaksi
-    secondCard.classList.add("matched");//Toisen kortin merkkaus vastaavaksi
-    resedBoard(); //Pelilaudan nollaus
-}
+        if (!firstCard) {
+            firstCard = this;
+            return;
+        }
 
-//Funktio korttien käännöstä takaisin jos eivät täsmää
-function unflipCards() {
-    lockBoard = true; //Estää useamman käännön function aikana
-    setTimeout(() => {
-        firstCard.classList.remove("flipped"); //Poistaa käännetty luokan ensimmäisestä
-        secondCard.classList.remove("flipped"); //Poistaa käännetty luokan toisesta
-        firstCard.textContent = ""; //Piilottaa kortin arvon
-        secondCard.textContent = ""; //Piiloittaa kortin arvon
-        resedBoard(); //Nollaa laudan seuraavaa kierrrosta varten
-    }, 1000); //Luo sekunnin viiveen jotta kortit kerkeää nähdä ennen takaisin kääntöä
-}
-
-//Pöydän resetointi function
-function resedBoard() {
-    [firstCard, secondCard, lockBoard] = [null, null, false]; //Nollaa pelin
-}
-
-//Functio korttien sekoittamista varten
-function shuffleArray(array) {
-    let currentIndex = array.length, randomIndex;
-    //Sekoittaa taulukon
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() *currentIndex);
-        currentIndex--;
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex],
-            array[currentIndex],
-        ];
+        secondCard = this;
+        checkForMatch();
     }
-    return array; //Palauta taulukko
-}
-//Pelilaudan luonti sivun latautumisen jälkeen
-createBoard();
 
+    function checkForMatch() {
+        if (firstCard.dataset.value === secondCard.dataset.value) {
+            disableCards();
+        } else {
+            unflipCards();
+        }
+    }
+
+    function disableCards() {
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
+        resetBoard();
+    }
+
+    function unflipCards() {
+        lockBoard = true;
+        setTimeout(() => {
+            firstCard.classList.remove("flipped");
+            secondCard.classList.remove("flipped");
+            firstCard.textContent = "";
+            secondCard.textContent = "";
+            resetBoard();
+        }, 1000);
+    }
+
+    function resetBoard() {
+        [firstCard, secondCard, lockBoard] = [null, null, false];
+    }
+
+    function shuffleArray(array) {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]
+            ];
+        }
+        return array;
+    }
+
+    // Aloitusnappi kutsuu peliä
+    document.getElementById("start-game").addEventListener("click", peli);
 });
