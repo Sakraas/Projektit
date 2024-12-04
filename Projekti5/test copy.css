@@ -58,31 +58,3 @@ h1 {
 .card:hover {
   transform: translateY(-5px); /* Kortin kevyt nosto hover-toiminnossa */
 }
-
-#game-board {
-  display: grid;
-  gap: 10px; /* Välit korttien välillä */
-  justify-content: center;
-  margin: 20px auto; /* Keskittää pelilaudan */
-}
-
-.card {
-  width: 60px;
-  height: 60px;
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-  user-select: none;
-  text-transform: uppercase;
-}
-
-.card.flipped, .card.matched {
-  background-color: #4caf50; /* Korostusväri käännetyille ja löydetyille korteille */
-  color: white;
-  font-weight: bold;
-  border: 1px solid #388e3c;
-}

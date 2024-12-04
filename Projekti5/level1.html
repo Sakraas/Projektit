@@ -9,9 +9,18 @@
 <body>
 
      <button type="button" onclick="location.href='index.html'">Mene kotisivulle</button> <!-- ohjaa tästä takaisin index.html-->
-    
-     <div class="container" id="vaik" value="helppo">
-        <h1>Muistipeli - Helppo</h1>
+     <div id="container">
+
+        <select id="taso">
+            <option value="easy">Taso1</option>
+            <option value="medium">Taso2</option>
+            <option value="hard">Taso3</option>
+          </select>
+
+    </div>
+     <div class="container">
+        <option></option>
+        <h1>Muistipeli</h1>
         <!-- pelin paikka on tässä -->
          <div class="game-board" id="game-board"></div>
      </div>
