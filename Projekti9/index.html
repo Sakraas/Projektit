@@ -1,38 +1,50 @@
 <!DOCTYPE html>
+<!-- Määritetään HTML sivun kieliasetus -->
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linkitetään CSS tiedosto -->
     <link rel="stylesheet" type="text/css" href="">
     <title>Nimipäiväkalenteri</title>
 </head>
-
+<!-- Sivun latautuessa suoritetaan kyseinen functio -->
 <body onload="nimipaivat()">
     <main>
+        <!-- Luodaan divi mihin tulevat nimipäivien tiedot -->
         <div id="nimipv" class="kontti">
             <h1>Nimipäiväkalenteri</h1>
             
             <h3>Tänään:</h3>
+            <!-- Tähän tulee JavaScriptillä tämän päivän nimipäivä tiedot -->
             <p id="tanaan"></p>
             
             <h3>Huomenna:</h3>
+            <!-- Tähän tulee JavaScriptillä huomisen päivän -->
             <p id="huomenna"></p>
             
             <h3>Eilen:</h3>
+            <!-- Tähän tulee JavaScriptillä eilisen päivän -->
             <p id="eilen"></p>
             
             <p>Anna päivä</p>
+            <!-- Määritetään valitse päivämäärä kalenterista syöttö ja päivämäärää vaihtaessa suoritetaan functio -->
             <input type="date" name="kalenteri" id="kalenteri" onchange="nimipaivatValitse()">
+            <!-- Syötetään JavaSriptillä valitun päivän nimipäivätiedot -->
             <p id="valitsepv">Nimipäiväänsä viettää</p>
 
+            <!-- Määritetään tekstin syöttökenttä nimipäivä hakua varten -->
             <label for="nimi">Anna nimi:</label>
             <input type="text" id="nimi">
+            <!-- Syötetään JavaScriptillä syötetyn nimen nimipäivätiedot -->
             <p id="kirjoitanimi"></p>
+            <!-- Määritetään nappi jota painaessa suoritetaan functio hakemaan nimipäivätiedot syötetyllä nimellä -->
             <input type="button" value="Etsi" onclick="nimipaivatNimi()">
 
         </div>
     </main>
     
 </body>
+<!-- Linkitetään JavaScript tiedosto -->
 <script type="text/javascript" src="script.js"></script>
 </html>

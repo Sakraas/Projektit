@@ -1,5 +1,5 @@
 //
-// Sivun ladattaessa nämä functiot suoritetaan
+// HTML Sivun ladattaessa nämä functiot suoritetaan
 
 function nimipaivat() {
     nimipaivatTanaan();
@@ -16,19 +16,25 @@ function nimipaivatTanaan() {
         "https://nameday.abalin.net/api/V1/today"
     );
     // 
-    // Muuttuja API:n parametreille. Maa ja aikavyöhyke
+    // Objekti muuttuja API:n parametreille. Maa ja aikavyöhyke
     const params = {
         "country": "fi",
         "timezone": "Europe/Prague",
     };
+    // 
+    // Määritetään objektimuuttuja params, joka sisältää API-kyselyyn liittyvät parametrit
     Object.keys(params)
         .forEach(key => url.searchParams.append(key, params[key]));
 
+    // 
+    // Määritellään HTTP-pyynnön otsikot. Näillä kerrotaan, että halutaan käsitellä JSON dataa
     const headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
 
+    // 
+    // Lähetetään GET-pyyntö API-osoitteeseen
     fetch(url, {
         method: "GET",
         headers,
@@ -42,25 +48,34 @@ function nimipaivatTanaan() {
 }
 // 
 // Functio nimipäiville huomenna
-// Muuten sama, mutta API:n URL on eri
 function nimipaivatHuomenna() {
 
+    // 
+    // Muuttuja API:n URL osoitteelle
     const url = new URL(
         "https://nameday.abalin.net/api/V1/tomorrow"
     );
 
+    // 
+    // Objekti muuttuja API:n parametreille. Maa ja aikavyöhyke
     const params = {
         "country": "fi",
         "timezone": "Europe/Prague",
     };
+    // 
+    // Määritetään objektimuuttuja params, joka sisältää API-kyselyyn liittyvät parametrit
     Object.keys(params)
         .forEach(key => url.searchParams.append(key, params[key]));
 
+    //
+    // Määritellään HTTP-pyynnön otsikot. Näillä kerrotaan, että halutaan käsitellä JSON dataa
     const headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
 
+    // 
+    // Lähetetään GET-pyyntö API-osoitteeseen
     fetch(url, {
         method: "GET",
         headers,
@@ -73,25 +88,34 @@ function nimipaivatHuomenna() {
 }
 // 
 // Functio nimipäiville eilen
-// Muuten sama, mutta API:n URL on eri
 function nimipaivatEilen() {
 
+    // 
+    // Muuttuja API:n URL osoitteelle
     const url = new URL(
         "https://nameday.abalin.net/api/V1/yesterday"
     );
 
+    // 
+    // Määritetään objektimuuttuja params, joka sisältää API-kyselyyn liittyvät parametrit
     const params = {
         "country": "fi",
         "timezone": "Europe/Prague",
     };
+    // 
+    // Määritetään objektimuuttuja params, joka sisältää API-kyselyyn liittyvät parametrit
     Object.keys(params)
         .forEach(key => url.searchParams.append(key, params[key]));
 
+    // 
+    // Määritellään HTTP-pyynnön otsikot. Näillä kerrotaan, että halutaan käsitellä JSON dataa
     const headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
 
+    // 
+    // Lähetetään GET-pyyntö API-osoitteeseen
     fetch(url, {
         method: "GET",
         headers,
@@ -104,7 +128,6 @@ function nimipaivatEilen() {
 }
 // 
 // Functio valitsemalle päivälle
-// Melkein sama, mutta API:n URL on eri
 function nimipaivatValitse() {
 
     const url = new URL(
@@ -113,7 +136,8 @@ function nimipaivatValitse() {
     // 
     // Muuttuja kalenterin päivämäärälle
     var paivamaara = document.getElementById("kalenteri").value;
-    
+    // 
+    // Määritetään objektimuuttuja params, joka sisältää API-kyselyyn liittyvät parametrit
     const params = {
         // Otetaan kalenterin arvosta pelkkä päivämäärä
         "day": paivamaara.substring(8, 10),
@@ -122,14 +146,20 @@ function nimipaivatValitse() {
         "country": "fi",
         
     };
+    // 
+    // Lisätään params-objektin avain-arvoparit osaksi url-osoitteen kyselyparametreja
     Object.keys(params)
         .forEach(key => url.searchParams.append(key, params[key]));
 
+    // 
+    // Määritellään HTTP-pyynnön otsikot. Näillä kerrotaan, että halutaan käsitellä JSON dataa
     const headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
 
+    // 
+    // Lähetetään GET-pyyntö API-osoitteeseen
     fetch(url, {
         method: "GET",
         headers,
@@ -151,23 +181,32 @@ function nimipaivatNimi() {
     
     // Muuttuja syötetylle nimelle
     var kirjoitaNimi = document.getElementById("nimi").value    
+    // 
+    // Määritetään objektimuuttuja params, joka sisältää API-kyselyyn liittyvät parametrit
     const params = {
-        // Parametriksi syötetty nimi
         "name": kirjoitaNimi,
         "country": "fi",
         
     };
+    // 
+    // Lisätään params-objektin avain-arvoparit osaksi url-osoitteen kyselyparametreja
     Object.keys(params)
         .forEach(key => url.searchParams.append(key, params[key]));
 
+    // 
+    // Määritellään HTTP-pyynnön otsikot. Näillä kerrotaan, että halutaan käsitellä JSON dataa
     const headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
 
+    // 
+    // Lähetetään GET-pyyntö API-osoitteeseen
     fetch(url, {
         method: "GET",
         headers,
+    // 
+    // Kun palvelin vastaa, vastaus muunnetaan JSON-muotoon.
     }).then(response => response.json())
     .then(data => {
         // 
