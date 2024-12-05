@@ -1,88 +1,115 @@
+/* Yleiset tyylit */
+body {
+  background-color: #2d3748;
+  color: white;
+  font-family: Arial, sans-serif;
+}
 
 /* Pelin pääsäiliön tyylitys */
 .container {
-  background-color: #fff; /* Puhdas valkoinen tausta */
-  padding: 20px; /* Sisennys sisällön ympärillä */
-  border-radius: 15px; /* Pyöristetyt kulmat, korttimainen ulkonäkö */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Varjostus syvyyden luomiseksi */
-  text-align: center; /* Sisällön keskitys */
-  width: 400px; /* Kiinteä säiliön leveys */
-  max-width: 100%; /* Varmistaa, ettei ylitä näytön kokoa */
-  transition: transform 0.3s ease; /* Pehmeä siirtymä hover-toiminnolle */
-}
-/* Pääotsikon tyylitys */
-h1 {
-  font-size: 2.5em; /* Suuri fonttikoko otsikolle */
-  margin-bottom: 20px; /* Tilaa otsikon alla */
-  color: #2d3748; /* Tumma väri kontrastin vuoksi */
-}
-/* Pelilaudan tyylitys: ruudukkoasettelu, jossa kortit ovat 4 sarakkeessa */
-.game-board {
-  display: grid;
-  grid-template-columns: repeat(
-    4,
-    90px
-  ); /* 4 saraketta kiinteällä kortin leveydellä */
-  grid-gap: 10px; /* Tilaa korttien välillä */
-  justify-content: center; /* Pelilaudan keskitys */
-}
-/* Korttien tyylitys */
-.card {
-  width: 90px; /* Kortin leveys */
-  height: 90px; /* Kortin korkeus */
-  background-color: #007bff; /* Alkuperäinen sininen tausta */
-  color: white; /* Valkoinen tekstiväri */
-  display: flex; /* Flexbox keskittää tekstin */
-  justify-content: center; /* Tekstin keskitys horisontaalisesti */
-  align-items: center; /* Tekstin keskitys vertikaalisesti */
-  font-size: 1.8em; /* Hieman pienempi fonttikoko */
-  border-radius: 10px; /* Pyöristetyt kulmat */
-  cursor: pointer; /* Vaihtaa osoittimen kädeksi klikkauksen merkiksi */
-  user-select: none; /* Estää tekstin valinnan */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Pehmeät siirtymät */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Hieno varjostus syvyyden luomiseksi */
-}
-/* Flippattujen korttien tyylitys */
-.card.flipped {
-  background-color: #fff; /* Valkoinen tausta, kun flippattu */
-  color: #007bff; /* Sininen teksti, kun flippattu */
-  cursor: default; /* Ei osoittimen vaihtoa, kun flippattu */
-}
-/* Osuneiden korttien tyylitys */
-.card.matched {
-  background-color: #28a745; /* Vihreä tausta osuneille korteille */
-  color: white; /* Valkoinen teksti osuneille korteille */
-  cursor: default; /* Klikkaamisen esto osuneille korteille */
-}
-/* Hover-vaikutus korteille kevyellä nostovaikutuksella */
-.card:hover {
-  transform: translateY(-5px); /* Kortin kevyt nosto hover-toiminnossa */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+  max-width: 100%;
+  transition: transform 0.3s ease;
 }
 
+/* Pelilauta */
 #game-board {
   display: grid;
-  gap: 10px; /* Välit korttien välillä */
+  gap: 10px;
   justify-content: center;
-  margin: 20px auto; /* Keskittää pelilaudan */
+  margin: 20px auto;
 }
 
+/* Kortin ulkoasu */
 .card {
-  width: 60px;
-  height: 60px;
+  width: 90px; /* Määritä kortin leveys */
+  height: 90px; /* Määritä kortin korkeus */
   background-color: #f2f2f2;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 2.5em; /* Suuri fonttikoko tekstille */
+  border-radius: 10px;
   cursor: pointer;
   user-select: none;
-  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.card.flipped, .card.matched {
-  background-color: #4caf50; /* Korostusväri käännetyille ja löydetyille korteille */
-  color: white;
-  font-weight: bold;
-  border: 1px solid #388e3c;
+/* Käännetyt kortit */
+.card.flipped {
+  background-color: #fff;
+  color: #007bff;
+  cursor: default;
 }
+
+/* Kortit, jotka ovat löydettyjä */
+.card.matched {
+  background-color: #28a745;
+  color: white;
+  cursor: default;
+}
+
+/* Hover-efekti */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Kuva kortissa */
+.card img {
+  width: 80%; /* Skaalaa kuva kortin sisään */
+  height: 80%; /* Skaalaa kuva kortin sisään */
+  object-fit: cover; /* Kuvan peittävyys säilyy */
+  display: none; /* Piilota kuva, kun kortti ei ole käännetty */
+}
+
+/* Pelin valikkonäkymä */
+button {
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+}
+
+select {
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#h1black {
+  color: black;
+}
+
+/* Pelin vaikeusasteen valikko */
+select {
+  width: 150px;
+  margin-top: 20px;
+}
+
+/* Pelilauta ja korttien määrä - muutokset vaikeustasojen mukaan */
+#game-board.easy {
+  grid-template-columns: repeat(4, 1fr); /* 4 saraketta */
+  width: 400px;
+}
+
+#game-board.medium {
+  grid-template-columns: repeat(5, 1fr); /* 5 saraketta */
+  width: 500px;
+}
+
+#game-board.hard {
+  grid-template-columns: repeat(6, 1fr); /* 6 saraketta */
+  width: 600px;
+}
+

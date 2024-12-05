@@ -7,7 +7,7 @@
     <title>Muistipeli</title>
 </head>
 <body>
-
+    <main>
     <header>
 
         <h1>Tervetuloa muistipeliin!</h1>
@@ -21,7 +21,12 @@
     <div id="container">
 
         <button id="start-game" onclick="paivitaWindowLocation()">Aloita peli</button>
-
+        <div id="game-board"></div>
+        <select id="taso">
+            <option value="easy">Helppo</option>
+            <option value="medium">Keskitaso</option>
+            <option value="hard">Vaikea</option>
+        </select>
            
     </div>
     
@@ -30,6 +35,8 @@
         <!-- window.location.href = " esim. level1.html " tulee tähän -->
 
     </nav>
-    <script type="text/javascript" src="difficulty.js"></script>                           <!-- Linkitä tänne JavaScript -->
+    
+</main>
 </body>
+    <script type="text/javascript" src="difficulty.js"></script>                           <!-- Linkitä tänne JavaScript -->
 </html>
