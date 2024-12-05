@@ -1,0 +1,56 @@
+/* Keskitetään sisältö keskelle ruutua */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #5e5e5e; /* Vaalea taustaväri */
+}
+
+/* Määritellään div-elementin tyyli */
+.kontti {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black; /* 3px leveä reunus */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Musta varjo */
+    border-radius: 10px; /* Pyöristetyt kulmat */
+    max-width: 400px;
+    text-align: center; /* Keskitetään sisältö tekstin osalta */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+#kalenteri,
+#nimi,
+#etsi {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#etsi {
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#etsi:hover {
+    background-color: #0056b3;
+}
