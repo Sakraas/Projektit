@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<!-- Määritetään sivun kieliasetus -->
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS linkitys -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="">
     <title>Kuvakirja äänillä</title>
 </head>
 <body>
@@ -13,13 +14,13 @@
         <h1 id="otsikko">Eläinten kuvakirja äänillä</h1>
         <!-- p elementti tekstiä -->
         <p id="teksti">Paina eläimen kuvaa saadaksen kyseisen eläimen äänen</p>
-        <!-- Eläinten kuvia -->
+        <!-- Eläinten kuvia. Kuvaa klikatessa suoritetaan functio. -->
         <div id="kuvat">
-            <img src="kuvat/Cow_moo_moo.jpg" alt="lehmän kuva" id="lehma" class="kuva" onclick="aani(this)">
-            <img src="kuvat/Blackcat-Lilith.jpg" alt="kissan kuva" id="kissa" class="kuva" onclick="aani(this)">
-            <img src="kuvat/koira.jpg" alt="koiran kuva" id="koira" class="kuva" onclick="aani(this)">
-            <img src="kuvat/kukko.JPG" alt="kukon kuva" id="kukko" class="kuva" onclick="aani(this)">
-            <img src="kuvat/leijona.jpg" alt="leijonan kuva" id="leijona" class="kuva" onclick="aani(this)">
+            <img src="kuvat/Cow_moo_moo.jpg" alt="lehmän kuva" id="lehma" class="kuva" onclick="aanet(this)">
+            <img src="kuvat/Blackcat-Lilith.jpg" alt="kissan kuva" id="kissa" class="kuva" onclick="aanet(this)">
+            <img src="kuvat/koira.jpg" alt="koiran kuva" id="koira" class="kuva" onclick="aanet(this)">
+            <img src="kuvat/kukko.JPG" alt="kukon kuva" id="kukko" class="kuva" onclick="aanet(this)">
+            <img src="kuvat/leijona.jpg" alt="leijonan kuva" id="leijona" class="kuva" onclick="aanet(this)">
         </div>
     </main>
     <!-- JS linkitys -->
