@@ -1,5 +1,6 @@
 /* Yleiset tyylit */
 body {
+
   background-color: #2d3748;
   color: white;
   font-family: Arial, sans-serif;
@@ -7,6 +8,7 @@ body {
 
 /* Pelin pääsäiliön tyylitys */
 .container {
+  margin: auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 15px;
@@ -29,7 +31,8 @@ body {
 .card {
   width: 90px; /* Määritä kortin leveys */
   height: 90px; /* Määritä kortin korkeus */
-  background-color: #f2f2f2;
+  background-image: url(images/card.jpeg);
+  background-size: cover;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
@@ -49,13 +52,6 @@ body {
   cursor: default;
 }
 
-/* Kortit, jotka ovat löydettyjä */
-.card.matched {
-  background-color: #28a745;
-  color: white;
-  cursor: default;
-}
-
 /* Hover-efekti */
 .card:hover {
   transform: translateY(-5px);
@@ -67,6 +63,7 @@ body {
   height: 80%; /* Skaalaa kuva kortin sisään */
   object-fit: cover; /* Kuvan peittävyys säilyy */
   display: none; /* Piilota kuva, kun kortti ei ole käännetty */
+  background-color: white;
 }
 
 /* Pelin valikkonäkymä */
@@ -104,7 +101,7 @@ select {
 }
 
 #game-board.medium {
-  grid-template-columns: repeat(5, 1fr); /* 5 saraketta */
+  grid-template-columns: repeat(6, 1fr); /* 6 saraketta */
   width: 500px;
 }
 
@@ -112,4 +109,11 @@ select {
   grid-template-columns: repeat(6, 1fr); /* 6 saraketta */
   width: 600px;
 }
+
+/* Kortit, jotka ovat löydettyjä */
+.card.matched {
+  background-color: #28a745 !important; 
+  cursor: default;
+}
+
 

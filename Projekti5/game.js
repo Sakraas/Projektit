@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     const pieni = 16;
-    const keski = 20;
-    const iso = 24;
+    const keski = 24;
+    const iso = 36;
 
     const cardsArray = [
         "A", "A", "B", "B", "C", "C", "D", "D",
         "E", "E", "F", "F", "G", "G", "H", "H",
-        "I", "I", "J", "J", "K", "K", "L", ""
+        "I", "I", "J", "J", "K", "K", "L", "L",
+        "M", "M", "N", "N", "O", "O", "P", "P",
+        "Q", "Q", "R", "R",
     ];
 
     let kortit = [];
@@ -41,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (vaikeus === "easy") {
             columns = 4; // 4x4
         } else if (vaikeus === "medium") {
-            columns = 5; // 4x5
+            columns = 4; // 4x6
         } else if (vaikeus === "hard") {
-            columns = 6; // 4x6
+            columns = 6; // 6x6
         }
 
         gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`; // Aseta sarakkeet
