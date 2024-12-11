@@ -1,6 +1,5 @@
 //
 // HTML Sivun ladattaessa nämä functiot suoritetaan
-
 function nimipaivat() {
     nimipaivatTanaan();
     nimipaivatHuomenna();
