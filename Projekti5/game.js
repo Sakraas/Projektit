@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     const pieni = 16;
-    const keski = 20;
-    const iso = 24;
+    const keski = 24;
+    const iso = 36;
 
     const cardsArray = [
         "A", "A", "B", "B", "C", "C", "D", "D",
         "E", "E", "F", "F", "G", "G", "H", "H",
-        "I", "I", "J", "J", "K", "K", "L", ""
+        "I", "I", "J", "J", "K", "K", "L", "L",
+        "M", "M", "N", "N", "O", "O", "P", "P",
+        "Q", "Q", "R", "R",
     ];
 
     let kortit = [];
@@ -14,7 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let firstCard = null;
     let secondCard = null;
     let lockBoard = false;
-
+    let arvaustenLkm = 0; // Arvausten laskuri
+    let peliAika = 0;      // Ajan laskuri
+    let ajastin;           // Ajastimen tallennus
     const gameBoard = document.getElementById("game-board");
 
     // Aloita peli ja valitse vaikeustaso
@@ -29,6 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         shuffledCards = shuffleArray(kortit);
         createBoard();
+
+        // Nollaa pelin aikamittarit ja arvausten laskuri
+        peliAika = 0;
+        arvaustenLkm = 0;
+        document.getElementById("pelinAika").textContent = "Aika: 0s";
+        document.getElementById("arvaustenLkm").textContent = "Arvauksia: 0";
+        document.getElementById("tulokset").innerHTML = ""; // Tyhjennä tulokset ennen peliä
+
+        // Poista aiempi ajastin, jos peli on käynnissä
+        if (ajastin) clearInterval(ajastin);
     }
 
     // Luo pelilauta ja kortit
@@ -41,9 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (vaikeus === "easy") {
             columns = 4; // 4x4
         } else if (vaikeus === "medium") {
-            columns = 5; // 4x5
+            columns = 4; // 4x6
         } else if (vaikeus === "hard") {
-            columns = 6; // 4x6
+            columns = 6; // 6x6
         }
 
         gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`; // Aseta sarakkeet
@@ -53,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.add("card");
             card.dataset.value = cardValue;
 
-            // Lisää kuva kortille (muista että kuvat ovat suurilla aakkosilla)
+            // Lisää kuva kortille
             const img = document.createElement("img");
             img.src = `/Projekti5/images/${cardValue}.png`; // Kuvan nimi on sama kuin kortin arvo, isolla
             img.alt = cardValue;
@@ -67,11 +81,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Käännä kortti
     function flipCard() {
-        if (lockBoard || this === firstCard) return;
+        // Estetään kortin kääntäminen, jos kortti on jo osunut pariksi
+        if (lockBoard || this === firstCard || this.classList.contains("matched")) return;
+
+        // Aloita ajastin ensimmäisestä arvauksesta
+        if (arvaustenLkm === 0) {
+            ajastin = setInterval(() => {
+                peliAika++;
+                document.getElementById("pelinAika").textContent = `Aika: ${peliAika}s`;
+            }, 1000);
+        }
 
         this.classList.add("flipped");
         const img = this.querySelector("img");
         img.style.display = "block"; // Näytä kuva
+
+        // Kasvata arvausten määrää
+        arvaustenLkm++;
+        document.getElementById("arvaustenLkm").textContent = `Arvauksia: ${arvaustenLkm}`;
 
         if (!firstCard) {
             firstCard = this;
@@ -133,8 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkGameOver() {
         const matchedCards = document.querySelectorAll(".matched");
         if (matchedCards.length === shuffledCards.length) {
+            clearInterval(ajastin); // Pysäytä ajastin peliin päättyessä
             setTimeout(() => {
-                alert("Onneksi olkoon, voitit pelin!");
+                alert(`Onneksi olkoon, voitit pelin! Aikaa kului: ${peliAika}s Arvauksia tehty: ${arvaustenLkm}`);
             }, 500); // Viivästytä ilmoitusta hieman
         }
     }

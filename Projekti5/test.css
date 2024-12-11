@@ -1,20 +1,35 @@
 /* Yleiset tyylit */
 body {
+
   background-color: #2d3748;
-  color: white;
+  color: rgb(0, 0, 0);
   font-family: Arial, sans-serif;
+}
+
+header {
+  width: 500px;
+}
+
+main {
+  width: 600px;
+  margin: auto;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Pelin pääsäiliön tyylitys */
 .container {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  margin: auto;
   text-align: center;
   width: 400px;
   max-width: 100%;
   transition: transform 0.3s ease;
+}
+
+.container.nav {
+  line-break: auto;
 }
 
 /* Pelilauta */
@@ -29,7 +44,8 @@ body {
 .card {
   width: 90px; /* Määritä kortin leveys */
   height: 90px; /* Määritä kortin korkeus */
-  background-color: #f2f2f2;
+  background-image: url(images/card.jpeg);
+  background-size: cover;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
@@ -44,15 +60,6 @@ body {
 
 /* Käännetyt kortit */
 .card.flipped {
-  background-color: #fff;
-  color: #007bff;
-  cursor: default;
-}
-
-/* Kortit, jotka ovat löydettyjä */
-.card.matched {
-  background-color: #28a745;
-  color: white;
   cursor: default;
 }
 
@@ -67,49 +74,89 @@ body {
   height: 80%; /* Skaalaa kuva kortin sisään */
   object-fit: cover; /* Kuvan peittävyys säilyy */
   display: none; /* Piilota kuva, kun kortti ei ole käännetty */
+  background-color: white;
 }
 
 /* Pelin valikkonäkymä */
 button {
-  background-color: lightblue;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1em;
   cursor: pointer;
   border: none;
   margin-top: 20px;
+  background-color: cornflowerblue;
 }
 
-select {
-  background-color: lightblue;
-  border-radius: 5px;
-  padding: 5px;
-  margin-top: 10px;
+#homeButton {
+  margin: -20px 0 0 0;
 }
 
 #h1black {
+  margin: -37px 0 0 0;
   color: black;
 }
 
 /* Pelin vaikeusasteen valikko */
-select {
+/* #taso option {
   width: 150px;
   margin-top: 20px;
 }
 
-/* Pelilauta ja korttien määrä - muutokset vaikeustasojen mukaan */
-#game-board.easy {
-  grid-template-columns: repeat(4, 1fr); /* 4 saraketta */
-  width: 400px;
+#taso option [value="easy"] {
+background: green;
 }
 
-#game-board.medium {
-  grid-template-columns: repeat(5, 1fr); /* 5 saraketta */
-  width: 500px;
+#taso option[value="medium"] {
+background: yellow;
 }
 
-#game-board.hard {
-  grid-template-columns: repeat(6, 1fr); /* 6 saraketta */
-  width: 600px;
+#taso option[value="hard"] {
+  background: red;
+} */
+
+/* Mukautettu select, jotta voidaan tyylitellä se vapaasti */
+.custom-select {
+  position: relative;
+  width: 200px;
+  font-size: 16px;
 }
 
+#taso {
+  appearance: none; /* Poistaa selaimen oletusulkoasun */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 150px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white; /* Taustaväri, joka on yleinen kaikille */
+  cursor: pointer;
+}
+
+/* Tämän avulla muokataan, mikäli valittu vaihtoehto on helppo, keskitaso tai vaikea */
+.easy {
+  background-color: lightgreen;
+}
+
+.medium {
+  background-color: lightyellow;
+}
+
+.hard {
+  background-color: lightcoral;
+}
+
+/* Näyttää värit valitussa vaihtoehdossa */
+#taso option[value="easy"] {
+  background-color: lightgreen;
+}
+
+#taso option[value="medium"] {
+  background-color: lightyellow;
+}
+
+#taso option[value="hard"] {
+  background-color: lightcoral;
+}
