@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function maaritaVoittaja(pelaajaValinta, tietokoneValinta) {
         if (pelaajaValinta === tietokoneValinta) {
             return "Tasapeli!"
+            
 
         } else if (
             (pelaajaValinta === "kivi" && tietokoneValinta === "sakset") ||
@@ -35,8 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
             (pelaajaValinta === "sakset" && tietokoneValinta === "paperi")
         ) {
             return "Voitit!"
+            
         } else {
             return "Hävisit!"
+            
         }
          
     }
