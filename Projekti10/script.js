@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const vaihtoehdot = ["kivi", "paperi", "sakset"];   // Taulukko mahdollisista valinnoista
     
     // Functio tietokoneen valinnalle
-    // Satunnainen indexi numero generoidaan vaihtoehto taulukosta ja palautetaan se indexi.
+    // Satunnainen indexi numero generoidaan vaihtoehto taulukosta ja palautetaan sen indexi.
     function tietokoneenValinta() {
         const satunnainenIndexi = Math.floor(Math.random() * vaihtoehdot.length);
         return vaihtoehdot[satunnainenIndexi];
