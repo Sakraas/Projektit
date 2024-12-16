@@ -30,5 +30,7 @@ function lisaaTehtava() {
 
         // Tyhjennetään syöttökenttä
         tehtava.value = "";
+    } else {
+        alert("Kirjoita tehtävä!");
     }
 }
