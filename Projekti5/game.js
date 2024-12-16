@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     const pieni = 16;
-    const keski = 20;
-    const iso = 24;
+    const keski = 24;
+    const iso = 36;
 
     const cardsArray = [
         "A", "A", "B", "B", "C", "C", "D", "D",
         "E", "E", "F", "F", "G", "G", "H", "H",
-        "I", "I", "J", "J", "K", "K", "L", "L"
+        "I", "I", "J", "J", "K", "K", "L", "L",
+        "M", "M", "N", "N", "O", "O", "P", "P",
+        "Q", "Q", "R", "R",
     ];
 
     let kortit = [];
@@ -14,15 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let firstCard = null;
     let secondCard = null;
     let lockBoard = false;
-
-    let clicks = 0; // Napautusten määrä
-    let startTime = null; // Pelin aloitusaika
-    let timerInterval = null; // Aikaseurannan intervalli
-
+    let arvaustenLkm = 0; // Arvausten laskuri
+    let peliAika = 0;      // Ajan laskuri
+    let ajastin;           // Ajastimen tallennus
     const gameBoard = document.getElementById("game-board");
     const clicksDisplay = document.getElementById("clicks"); // Napautusten näyttö
     const timeDisplay = document.getElementById("time"); // Ajan näyttö
 
+    // Aloita peli ja valitse vaikeustaso
     function peli() {
         const vaikeus = document.getElementById("taso").value;
 
@@ -42,42 +43,72 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         shuffledCards = shuffleArray(kortit);
         createBoard();
+
+        // Nollaa pelin aikamittarit ja arvausten laskuri
+        peliAika = 0;
+        arvaustenLkm = 0;
+        document.getElementById("pelinAika").textContent = "Aika: 0s";
+        document.getElementById("arvaustenLkm").textContent = "Arvauksia: 0";
+        document.getElementById("tulokset").innerHTML = ""; // Tyhjennä tulokset ennen peliä
+
+        // Poista aiempi ajastin, jos peli on käynnissä
+        if (ajastin) clearInterval(ajastin);
     }
 
+    // Luo pelilauta ja kortit
     function createBoard() {
         gameBoard.innerHTML = ""; // Tyhjennä pelilauta ennen uuden luontia
-    
-        // Aseta ruudukon sarakkeiden määrä vaikeustason mukaan
+
         const vaikeus = document.getElementById("taso").value;
         let columns;
+
         if (vaikeus === "easy") {
             columns = 4; // 4x4
         } else if (vaikeus === "medium") {
-            columns = 5; // 4x5
+            columns = 4; // 4x6
         } else if (vaikeus === "hard") {
-            columns = 6; // 4x6
+            columns = 6; // 6x6
         }
-    
-        // Päivitä CSS-ruudukon sarakkeiden määrä
-        gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-    
-        // Luo kortit ja lisää ne pelilautaan
+
+        gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`; // Aseta sarakkeet
+
         shuffledCards.forEach((cardValue) => {
             const card = document.createElement("div");
             card.classList.add("card");
             card.dataset.value = cardValue;
+
+            // Lisää kuva kortille
+            const img = document.createElement("img");
+            img.src = `/Projekti5/images/${cardValue}.png`; // Kuvan nimi on sama kuin kortin arvo, isolla
+            img.alt = cardValue;
+            img.style.display = "none"; // Aluksi kuva on piilotettu
+            card.appendChild(img);
+
             card.addEventListener("click", flipCard);
             gameBoard.appendChild(card);
         });
     }
 
+    // Käännä kortti
     function flipCard() {
-        if (lockBoard || this === firstCard) return;
-        this.classList.add("flipped");
-        this.textContent = this.dataset.value;
+        // Estetään kortin kääntäminen, jos kortti on jo osunut pariksi
+        if (lockBoard || this === firstCard || this.classList.contains("matched")) return;
 
-        clicks++;
-        updateClicksDisplay();
+        // Aloita ajastin ensimmäisestä arvauksesta
+        if (arvaustenLkm === 0) {
+            ajastin = setInterval(() => {
+                peliAika++;
+                document.getElementById("pelinAika").textContent = `Aika: ${peliAika}s`;
+            }, 1000);
+        }
+
+        this.classList.add("flipped");
+        const img = this.querySelector("img");
+        img.style.display = "block"; // Näytä kuva
+
+        // Kasvata arvausten määrää
+        arvaustenLkm++;
+        document.getElementById("arvaustenLkm").textContent = `Arvauksia: ${arvaustenLkm}`;
 
         if (!firstCard) {
             firstCard = this;
@@ -88,14 +119,17 @@ document.addEventListener("DOMContentLoaded", () => {
         checkForMatch();
     }
 
+    // Tarkista, ovatko kortit samanlaiset
     function checkForMatch() {
         if (firstCard.dataset.value === secondCard.dataset.value) {
             disableCards();
+            checkGameOver(); // Tarkista pelin loppuminen, jos pari löytyy
         } else {
             unflipCards();
         }
     }
 
+    // Estä korttien uudelleen valinta
     function disableCards() {
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
@@ -103,21 +137,24 @@ document.addEventListener("DOMContentLoaded", () => {
         checkGameOver(); // Tarkista pelin loppuminen
     }
 
+    // Käännä kortit takaisin ympäri
     function unflipCards() {
         lockBoard = true;
         setTimeout(() => {
             firstCard.classList.remove("flipped");
             secondCard.classList.remove("flipped");
-            firstCard.textContent = "";
-            secondCard.textContent = "";
+            firstCard.querySelector("img").style.display = "none";
+            secondCard.querySelector("img").style.display = "none";
             resetBoard();
         }, 1000);
     }
 
+    // Nollaa peli ja varmista, että kortit eivät ole lukittuina
     function resetBoard() {
         [firstCard, secondCard, lockBoard] = [null, null, false];
     }
 
+    // Sekoita kortit
     function shuffleArray(array) {
         let currentIndex = array.length, randomIndex;
         while (currentIndex !== 0) {
@@ -130,29 +167,17 @@ document.addEventListener("DOMContentLoaded", () => {
         return array;
     }
 
-    function startTimer() {
-        timerInterval = setInterval(() => {
-            const elapsedTime = Math.floor((new Date() - startTime) / 1000);
-            timeDisplay.textContent = `Aika: ${elapsedTime}s`;
-        }, 1000);
-    }
-
-    function updateClicksDisplay() {
-        clicksDisplay.textContent = `Napautukset: ${clicks}`;
-    }
-
-    function stopTimer() {
-        clearInterval(timerInterval);
-    }
-
+    // Pelin lopetus tarkistus
     function checkGameOver() {
         const matchedCards = document.querySelectorAll(".matched");
-        if (matchedCards.length === kortit.length) {
-            stopTimer(); // Pysäytä ajastin
-            alert(`Peli valmis! Aika: ${timeDisplay.textContent}, Napautukset: ${clicks}`);
+        if (matchedCards.length === shuffledCards.length) {
+            clearInterval(ajastin); // Pysäytä ajastin peliin päättyessä
+            setTimeout(() => {
+                alert(`Onneksi olkoon, voitit pelin! Aikaa kului: ${peliAika}s Arvauksia tehty: ${arvaustenLkm}`);
+            }, 500); // Viivästytä ilmoitusta hieman
         }
     }
 
-    // Aloitusnappi kutsuu peliä
+    // Lisää tapahtumakuuntelija pelin aloitusnappiin
     document.getElementById("start-game").addEventListener("click", peli);
 });
