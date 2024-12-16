@@ -20,10 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let peliAika = 0;      // Ajan laskuri
     let ajastin;           // Ajastimen tallennus
     const gameBoard = document.getElementById("game-board");
+    const clicksDisplay = document.getElementById("clicks"); // Napautusten näyttö
+    const timeDisplay = document.getElementById("time"); // Ajan näyttö
 
     // Aloita peli ja valitse vaikeustaso
     function peli() {
         const vaikeus = document.getElementById("taso").value;
+
+        // Nollataan edellisen pelin tiedot
+        clicks = 0;
+        startTime = new Date();
+        clearInterval(timerInterval);
+        updateClicksDisplay();
+        startTimer();
+
         if (vaikeus === "easy") {
             kortit = cardsArray.slice(0, pieni);
         } else if (vaikeus === "medium") {
@@ -124,6 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
         resetBoard();
+        checkGameOver(); // Tarkista pelin loppuminen
     }
 
     // Käännä kortit takaisin ympäri
