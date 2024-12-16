@@ -1,0 +1,57 @@
+body {
+display: flex;
+justify-content: center;
+height: 600px;
+margin: 0;
+color: #000;
+transition: background-color 0.4s ease-in-out;
+}
+
+#kontti {
+    background: #999;
+    padding: 40px;
+    border: 18px;
+    box-shadow: 0 15px 15px #333;
+    text-align: center;
+    width: 350px;
+    transition: transform 0.4s ease;
+}
+
+/* Valintanappien asettelu */
+.valinnat {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  /* Yksittäisen valintanapin tyylitys */
+.valinta {
+    padding: 15px 25px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    user-select: none;
+    background-color: #061639;
+    color: #FFF;
+    cursor: pointer;
+
+    background-image: linear-gradient(#4E648E, #061639 );
+    background-repeat: no-repeat;
+
+    background-size: 1px 100%;
+    background-position: 0 0;
+    transition: background-size 0.3s, backgound-position 0.1s 0.3s;
+
+  }
+  /* Hover-efekti valintanapeille */
+.valinta:hover {
+    background-size: 100% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.1s, background-size 0.3s 0.1s;
+    color: #FFF;
+  }
+  /* Tulostekstin tyylitys */
+.tulos {
+    font-size: 1.4em;
+    margin-top: 20px;
+    color: #000000;
+  }
