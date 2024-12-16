@@ -11,6 +11,12 @@
      <button type="button" onclick="location.href='index.html'">Mene kotisivulle</button> <!-- ohjaa tästä takaisin index.html-->
      
      <div class="container">
+        
+        <div id="stats">
+            <p id="clicks">Napautukset: 0</p>
+            <p id="time">Aika: 0s</p>
+        </div>
+
         <h1>Muistipeli</h1>
         <button id="start-game" onclick="paivitaWindowLocation()">Aloita peli</button>
         <div id="game-board"></div>
@@ -19,6 +25,8 @@
             <option value="medium">Keskitaso</option>
             <option value="hard">Vaikea</option>
         </select>
+
+
            
     </div>
 <script src="game.js"></script>     

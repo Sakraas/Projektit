@@ -15,10 +15,24 @@ document.addEventListener("DOMContentLoaded", () => {
     let secondCard = null;
     let lockBoard = false;
 
+    let clicks = 0; // Napautusten määrä
+    let startTime = null; // Pelin aloitusaika
+    let timerInterval = null; // Aikaseurannan intervalli
+
     const gameBoard = document.getElementById("game-board");
+    const clicksDisplay = document.getElementById("clicks"); // Napautusten näyttö
+    const timeDisplay = document.getElementById("time"); // Ajan näyttö
 
     function peli() {
         const vaikeus = document.getElementById("taso").value;
+
+        // Nollataan edellisen pelin tiedot
+        clicks = 0;
+        startTime = new Date();
+        clearInterval(timerInterval);
+        updateClicksDisplay();
+        startTimer();
+
         if (vaikeus === "easy") {
             kortit = cardsArray.slice(0, pieni);
         } else if (vaikeus === "medium") {
@@ -56,12 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
             gameBoard.appendChild(card);
         });
     }
-    
 
     function flipCard() {
         if (lockBoard || this === firstCard) return;
         this.classList.add("flipped");
         this.textContent = this.dataset.value;
+
+        clicks++;
+        updateClicksDisplay();
 
         if (!firstCard) {
             firstCard = this;
@@ -84,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         firstCard.classList.add("matched");
         secondCard.classList.add("matched");
         resetBoard();
+        checkGameOver(); // Tarkista pelin loppuminen
     }
 
     function unflipCards() {
@@ -111,6 +128,29 @@ document.addEventListener("DOMContentLoaded", () => {
             ];
         }
         return array;
+    }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            const elapsedTime = Math.floor((new Date() - startTime) / 1000);
+            timeDisplay.textContent = `Aika: ${elapsedTime}s`;
+        }, 1000);
+    }
+
+    function updateClicksDisplay() {
+        clicksDisplay.textContent = `Napautukset: ${clicks}`;
+    }
+
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
+
+    function checkGameOver() {
+        const matchedCards = document.querySelectorAll(".matched");
+        if (matchedCards.length === kortit.length) {
+            stopTimer(); // Pysäytä ajastin
+            alert(`Peli valmis! Aika: ${timeDisplay.textContent}, Napautukset: ${clicks}`);
+        }
     }
 
     // Aloitusnappi kutsuu peliä
